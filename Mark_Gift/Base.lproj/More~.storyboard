@@ -22,7 +22,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P1K-Qu-uPw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1219" y="1309"/>
+            <point key="canvasLocation" x="1278" y="1346"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="cln-bu-eDm">
@@ -41,7 +41,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Be-a3-Rf6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1219" y="723"/>
+            <point key="canvasLocation" x="1847" y="696"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -54,47 +54,19 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtQ-6R-EoE">
-                                <rect key="frame" x="157" y="236" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="fmZ-XX-n9R" kind="push" id="QJX-Ri-Zuo"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="lUz-W9-usJ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1214" y="171"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="iLb-JZ-7IY">
-            <objects>
-                <viewController id="fmZ-XX-n9R" customClass="MViewController" customModule="Mark_Gift" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="xD4-fQ-hNS"/>
-                        <viewControllerLayoutGuide type="bottom" id="fg2-ek-MhO"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="1Uk-lF-5r7">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="jD6-v1-djc"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2Fc-Bp-4dN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1630" y="145"/>
+            <point key="canvasLocation" x="1529" y="48"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="aaL-Ps-oRT">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="sgh-71-Gcf" customClass="MTabBarController" customModule="Mark_Gift" customModuleProvider="target" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mC4-wt-FaR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="sgh-71-Gcf" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="h9F-CU-Thx">
@@ -107,15 +79,15 @@
                         <segue destination="HPM-Jc-B6Y" kind="relationship" relationship="viewControllers" id="Eo4-kJ-aPy"/>
                     </connections>
                 </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mC4-wt-FaR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="340" y="441"/>
         </scene>
         <!--礼物说-->
         <scene sceneID="YtA-MG-THy">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zJ0-U6-n2W" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5Yl-uQ-7mb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="礼物说" image="tabbar_home" selectedImage="tabbar_home_selected" id="Q4b-mW-CTO">
+                    <tabBarItem key="tabBarItem" title="礼物说" image="icon_sort" selectedImage="B8292A3A-72CF-4773-995B-1E18404E6768" id="Q4b-mW-CTO">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -128,7 +100,6 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="rF9-CI-sW5"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zJ0-U6-n2W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="783" y="171"/>
         </scene>
@@ -149,7 +120,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vOG-Gv-nVQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="766" y="723"/>
+            <point key="canvasLocation" x="783" y="702"/>
         </scene>
         <!--分类-->
         <scene sceneID="kNh-Zk-Znd">
@@ -168,15 +139,97 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G8E-ug-ZOo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="766" y="1318"/>
+            <point key="canvasLocation" x="746" y="1346"/>
         </scene>
     </scenes>
     <resources>
+        <image name="B8292A3A-72CF-4773-995B-1E18404E6768" width="22" height="22">
+            <mutableData key="keyedArchiveRepresentation">
+YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
+GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
+c1dOU0NvbG9ygAKADRIgwAAAgAOAC1h7MjIsIDIyfdIVChYYWk5TLm9iamVjdHOhF4AEgArSFQoaHaIb
+HIAFgAaACRAA0iAKISJfEBROU1RJRkZSZXByZXNlbnRhdGlvboAHgAhPERAuTU0AKgAAB5gAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAABMQAKMoQHHIbPCy3S9Aw19/QMNffPCy3ShAcchjEACjIAAAABAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBAg1CsgkntfMNNvb8EDn//A44
+//wOOP/8Djj//A44//wQOf/zDTb2sgkntUACDkEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAcAAQiEBxyG9A029/wROf/8Djj//A44//wOOP/8Djj//A44//wOOP/8Djj//A44//wROf/0DTb3hAcc
+hgcAAQgAAAAAAAAAAAAAAAAAAAAAAAAAAAgBAQmeCCOg/BE5//wQOP/8Djj//A44//wOOP/8Djj//A44
+//wOOP/8Djj//A44//wOOP/8Djj//BA4//wROf+fCCOhCAEBCQAAAAAAAAAAAAAAAAAAAACFBR2H/BE6
+//wOOP/8Djj//A44//wOOP/8Djj//A44//wOOP/8Djj//A44//wOOP/8Djj//A44//wOOP/8Djj//BE6
+/4UFHYcAAAAAAAAAAAAAAABAAg5B9Q02+PwOOP/8Djj//A44//wOOP/8Djj//A44//wOOP/8Djj//A44
+//wOOP/8Djj//BA5//wOOP/8Djj//A44//wOOP/1DTb4QAIOQQAAAAADAAAEtAkot/wQOf/8Djj//A44
+//wOOP/8Djj//A44//wOOP/8Djj//A44//wOOP/8EDj//BA5/8YKLMmrCSau+g03/fwOOP/8Djj//BA5
+/7UJJ7gDAAAEMQMKMvMNNvb8Djj//A44//wOOP/8Djj//A44//wOOP/8Djj//A44//wOOP/8Dzr/3Qwx
+4G4EGHAXAAUYxgosyfwQOf/8Djj//A44//wOOP/zDTb2MQAKMoYHHIj8EDn//A44//wOOP/8Djj//A44
+//wOOP/8Djj//A44//wOOP/oDDPrigYejBsBBhwAAAAAbQQYb/wQOf/8Djj//A44//wOOP/8Djj//BA5
+/4YHHIjPCS3S/A44//wOOP/8Djj//A44//wOOP/8Djj//A44//wOOP/8Djj/YgQVZAAAAAAAAAAAGgEF
+G+AMMOP8EDj//A44//wOOP/8Djj//A44//wOOP/PCS3S9Aw29/wOOP/8Djj//A44//wOOP/8Djj//A44
+//wQOP/qDTTtYwUVZbkJKLw0Aws1AAAAAIoHHoz8ETr//A44//wOOP/8Djj//A44//wOOP/8Djj/9Aw2
+9/QMNvf8Djj//A44//wOOP/8Djj//A44//wOOP/8ETr/igYejAAAAAA0Aws1uQkovGMFFWXqDTTt/BA4
+//wOOP/8Djj//A44//wOOP/8Djj//A44//QMNvfPCS3S/A44//wOOP/8Djj//A44//wOOP/8EDj/4Qsx
+5BoABRsAAAAAAAAAAGIGFWT8Djj//A44//wOOP/8Djj//A44//wOOP/8Djj//A44//wOOP/PCS3Shgcc
+iPwQOf/8Djj//A44//wOOP/8Djj//BE5/24EGHAAAAAAGwEFHIoGHoznDDPq/A44//wOOP/8Djj//A44
+//wOOP/8Djj//A44//wOOP/8EDn/hgcciDEACjLzDTb2/A44//wOOP/8Djj//BA5/8cKK8oXAAUYbQQY
+b90MMeD8Dzr//A44//wOOP/8Djj//A44//wOOP/8Djj//A44//wOOP/8Djj/8w029jEACjIDAAAEtQkn
+uPwQOf/8Djj//A44//oNN/2rCCWuxgosyfwQOf/8EDj//A44//wOOP/8Djj//A44//wOOP/8Djj//A44
+//wOOP/8Djj//BA5/7UJJ7gDAAAEAAAAAEACDkH1DTb4/A44//wOOP/8Djj//A44//wQOf/8Djj//A44
+//wOOP/8Djj//A44//wOOP/8Djj//A44//wOOP/8Djj//A44//YPNvlAAg5BAAAAAAAAAAAAAAAAhQUd
+h/wROv/8Djj//A44//wOOP/8Djj//A44//wOOP/8Djj//A44//wOOP/8Djj//A44//wOOP/8Djj//A44
+//wROv+GBxyIAAAAAAAAAAAAAAAAAAAAAAgBAQmeCCOg/BE5//wQOP/8Djj//A44//wOOP/8Djj//A44
+//wOOP/8Djj//A44//wOOP/8Djj//BA4//wROf+fCCOhCAEBCQAAAAAAAAAAAAAAAAAAAAAAAAAABwAB
+CIUHHYf1DTb4/BE5//wOOP/8Djj//A44//wOOP/8Djj//A44//wOOP/8Djj//BE5//UNNviGBxyIBwAB
+CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQQINQrIJJ7XzDTb2/BA5//wOOP/8Djj//A44
+//wOOP/8EDn/8w029rIJJ7VBAg1CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAABMgILM4UHHYfQCS3T9Q02+PUNNvjQCi7ThQcdhzEDCjIAAAABAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAA4BAAADAAAAAQAWAAABAQADAAAAAQAWAAABAgADAAAABAAACEYBAwADAAAAAQABAAAB
+BgADAAAAAQACAAABEQAEAAAAAQAAAAgBEgADAAAAAQABAAABFQADAAAAAQAEAAABFgADAAAAAQAWAAAB
+FwAEAAAAAQAAB5ABHAADAAAAAQABAAABUgADAAAAAQABAAABUwADAAAABAAACE6HcwAHAAAH2AAACFYA
+AAAAAAgACAAIAAgAAQABAAEAAQAAB9hhcHBsAiAAAG1udHJSR0IgWFlaIAfZAAIAGQALABoAC2Fjc3BB
+UFBMAAAAAGFwcGwAAAAAAAAAAAAAAAAAAAAAAAD21gABAAAAANMtYXBwbAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC2Rlc2MAAAEIAAAAb2RzY20AAAF4AAAFnGNwcnQA
+AAcUAAAAOHd0cHQAAAdMAAAAFHJYWVoAAAdgAAAAFGdYWVoAAAd0AAAAFGJYWVoAAAeIAAAAFHJUUkMA
+AAecAAAADmNoYWQAAAesAAAALGJUUkMAAAecAAAADmdUUkMAAAecAAAADmRlc2MAAAAAAAAAFEdlbmVy
+aWMgUkdCIFByb2ZpbGUAAAAAAAAAAAAAABRHZW5lcmljIFJHQiBQcm9maWxlAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABtbHVjAAAAAAAAAB8AAAAMc2tTSwAAACgA
+AAGEZGFESwAAAC4AAAGsY2FFUwAAACQAAAHadmlWTgAAACQAAAH+cHRCUgAAACYAAAIidWtVQQAAACoA
+AAJIZnJGVQAAACgAAAJyaHVIVQAAACgAAAKaemhUVwAAABYAAALCbmJOTwAAACYAAALYY3NDWgAAACIA
+AAL+aGVJTAAAAB4AAAMgaXRJVAAAACgAAAM+cm9STwAAACQAAANmZGVERQAAACwAAAOKa29LUgAAABYA
+AAO2c3ZTRQAAACYAAALYemhDTgAAABYAAAPMamFKUAAAABoAAAPiZWxHUgAAACIAAAP8cHRQTwAAACYA
+AAQebmxOTAAAACgAAAREZXNFUwAAACYAAAQedGhUSAAAACQAAARsdHJUUgAAACIAAASQZmlGSQAAACgA
+AASyaHJIUgAAACgAAATacGxQTAAAACwAAAUCcnVSVQAAACIAAAUuYXJFRwAAACYAAAVQZW5VUwAAACYA
+AAV2AFYBYQBlAG8AYgBlAGMAbgD9ACAAUgBHAEIAIABwAHIAbwBmAGkAbABHAGUAbgBlAHIAZQBsACAA
+UgBHAEIALQBiAGUAcwBrAHIAaQB2AGUAbABzAGUAUABlAHIAZgBpAGwAIABSAEcAQgAgAGcAZQBuAOgA
+cgBpAGMAQx6lAHUAIABoAOwAbgBoACAAUgBHAEIAIABDAGgAdQBuAGcAUABlAHIAZgBpAGwAIABSAEcA
+QgAgAEcAZQBuAOkAcgBpAGMAbwQXBDAEMwQwBDsETAQ9BDgEOQAgBD8EQAQ+BEQEMAQ5BDsAIABSAEcA
+QgBQAHIAbwBmAGkAbAAgAGcA6QBuAOkAcgBpAHEAdQBlACAAUgBWAEIAwQBsAHQAYQBsAOEAbgBvAHMA
+IABSAEcAQgAgAHAAcgBvAGYAaQBskBp1KAAgAFIARwBCACCCcl9pY8+P8ABHAGUAbgBlAHIAaQBzAGsA
+IABSAEcAQgAtAHAAcgBvAGYAaQBsAE8AYgBlAGMAbgD9ACAAUgBHAEIAIABwAHIAbwBmAGkAbAXkBegF
+1QXkBdkF3AAgAFIARwBCACAF2wXcBdwF2QBQAHIAbwBmAGkAbABvACAAUgBHAEIAIABnAGUAbgBlAHIA
+aQBjAG8AUAByAG8AZgBpAGwAIABSAEcAQgAgAGcAZQBuAGUAcgBpAGMAQQBsAGwAZwBlAG0AZQBpAG4A
+ZQBzACAAUgBHAEIALQBQAHIAbwBmAGkAbMd8vBgAIABSAEcAQgAg1QS4XNMMx3xmbpAaACAAUgBHAEIA
+IGPPj/Blh072TgCCLAAgAFIARwBCACAw1zDtMNUwoTCkMOsDkwO1A70DuQO6A8wAIAPAA8EDvwPGA68D
+uwAgAFIARwBCAFAAZQByAGYAaQBsACAAUgBHAEIAIABnAGUAbgDpAHIAaQBjAG8AQQBsAGcAZQBtAGUA
+ZQBuACAAUgBHAEIALQBwAHIAbwBmAGkAZQBsDkIOGw4jDkQOHw4lDkwAIABSAEcAQgAgDhcOMQ5IDicO
+RA4bAEcAZQBuAGUAbAAgAFIARwBCACAAUAByAG8AZgBpAGwAaQBZAGwAZQBpAG4AZQBuACAAUgBHAEIA
+LQBwAHIAbwBmAGkAaQBsAGkARwBlAG4AZQByAGkBDQBrAGkAIABSAEcAQgAgAHAAcgBvAGYAaQBsAFUA
+bgBpAHcAZQByAHMAYQBsAG4AeQAgAHAAcgBvAGYAaQBsACAAUgBHAEIEHgQxBEkEOAQ5ACAEPwRABD4E
+RAQ4BDsETAAgAFIARwBCBkUGRAZBACAGKgY5BjEGSgZBACAAUgBHAEIAIAYnBkQGOQYnBkUARwBlAG4A
+ZQByAGkAYwAgAFIARwBCACAAUAByAG8AZgBpAGwAZXRleHQAAAAAQ29weXJpZ2h0IDIwMDcgQXBwbGUg
+SW5jLiwgYWxsIHJpZ2h0cyByZXNlcnZlZC4AWFlaIAAAAAAAAPNSAAEAAAABFs9YWVogAAAAAAAAdE0A
+AD3uAAAD0FhZWiAAAAAAAABadQAArHMAABc0WFlaIAAAAAAAACgaAAAVnwAAuDZjdXJ2AAAAAAAAAAEB
+zQAAc2YzMgAAAAAAAQxCAAAF3v//8yYAAAeSAAD9kf//+6L///2jAAAD3AAAwGzSJSYnKFokY2xhc3Nu
+YW1lWCRjbGFzc2VzXxAQTlNCaXRtYXBJbWFnZVJlcKMnKSpaTlNJbWFnZVJlcFhOU09iamVjdNIlJiwt
+V05TQXJyYXmiLCrSJSYvMF5OU011dGFibGVBcnJheaMvLCrTMjMKNDU2V05TV2hpdGVcTlNDb2xvclNw
+YWNlRDAgMAAQA4AM0iUmODlXTlNDb2xvcqI4KtIlJjs8V05TSW1hZ2WiOypfEA9OU0tleWVkQXJjaGl2
+ZXLRP0BUcm9vdIABAAgAEQAaACMALQAyADcARgBMAFcAXgBlAHIAeQCBAIMAhQCKAIwAjgCXAJwApwCp
+AKsArQCyALUAtwC5ALsAvQDCANkA2wDdEQ8RFBEfESgROxE/EUoRUxFYEWARYxFoEXcRexGCEYoRlxGc
+EZ4RoBGlEa0RsBG1Eb0RwBHSEdUR2gAAAAAAAAIBAAAAAAAAAEEAAAAAAAAAAAAAAAAAABHcA
+</mutableData>
+        </image>
+        <image name="icon_sort" width="21" height="22"/>
         <image name="tabbar_category" width="22" height="22"/>
         <image name="tabbar_category_selected" width="22" height="22"/>
         <image name="tabbar_gift" width="22" height="22"/>
         <image name="tabbar_gift_selected" width="22" height="22"/>
-        <image name="tabbar_home" width="22" height="22"/>
-        <image name="tabbar_home_selected" width="22" height="22"/>
     </resources>
 </document>
