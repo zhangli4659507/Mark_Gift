@@ -22,10 +22,7 @@ class MHomeSigmentView: UIView {
         self.baseView = baseView
         caretaUI()
         self.actionIndexCourse = {(index:Int,model:MSegmentTypeModel) in
-            
-            
         }
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -38,6 +35,7 @@ class MHomeSigmentView: UIView {
         self.addSubview(self.typeBtn!)
         self.typeBtn?.adjustsImageWhenDisabled = false
         self.typeBtn?.adjustsImageWhenHighlighted = false
+        typeBtn?.addTarget(self, action: <#T##Selector#>, forControlEvents: .TouchUpInside)
         self.typeBtn?.mas_makeConstraints({ (make) in
             make.top.bottom().trailing().equalTo()(self).offset()(0)
             make.width.offset()(55)
@@ -85,6 +83,11 @@ class MHomeSigmentView: UIView {
     }
     
 
+    @objc private func actionBtnType(sender: UIButton) {
+    
+        
+    }
+    
     @objc private func actionBtn(sender: UIButton) {
         
         for value in (self.scorllView?.subviews)! {
