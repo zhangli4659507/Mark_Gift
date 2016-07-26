@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Masonry.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>NetworkActivityIndicator.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -20,6 +25,11 @@
 			<false/>
 		</dict>
 		<key>Pods-Mark_Gift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -47,7 +57,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9756D96A6442E3D86A3012EF26E5D057</key>
+		<key>4CBCFA7736444C7B17B908011F64BAED</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>959D7BAFB4082B6015B66211FD2C5171</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,12 +72,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ACF6F368C5F863EF7995E7F306A90086</key>
+		<key>A9A83F63385AA43314397B8DD375464B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>C37240114F960431195002B2E0AC805E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DA7D8840B12F89902701D2474344AE9F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

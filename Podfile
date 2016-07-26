@@ -5,4 +5,6 @@ platform :ios, '9.0'
 use_frameworks!
 pod 'UIColor_Hex_Swift'
 pod 'Networking'
+pod 'Masonry'
+pod 'SDWebImage'
 end 

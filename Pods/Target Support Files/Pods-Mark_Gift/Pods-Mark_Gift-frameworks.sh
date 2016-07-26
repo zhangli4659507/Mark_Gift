@@ -85,15 +85,19 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/JSON/JSON.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Masonry/Masonry.framework"
   install_framework "$BUILT_PRODUCTS_DIR/NetworkActivityIndicator/NetworkActivityIndicator.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Networking/Networking.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SDWebImage/SDWebImage.framework"
   install_framework "$BUILT_PRODUCTS_DIR/TestCheck/TestCheck.framework"
   install_framework "$BUILT_PRODUCTS_DIR/UIColor_Hex_Swift/UIColor_Hex_Swift.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/JSON/JSON.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Masonry/Masonry.framework"
   install_framework "$BUILT_PRODUCTS_DIR/NetworkActivityIndicator/NetworkActivityIndicator.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Networking/Networking.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SDWebImage/SDWebImage.framework"
   install_framework "$BUILT_PRODUCTS_DIR/TestCheck/TestCheck.framework"
   install_framework "$BUILT_PRODUCTS_DIR/UIColor_Hex_Swift/UIColor_Hex_Swift.framework"
 fi

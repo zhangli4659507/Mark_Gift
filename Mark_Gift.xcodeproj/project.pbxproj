@@ -17,6 +17,7 @@
 		4D5677711D47053C00395641 /* MHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5677701D47053C00395641 /* MHomeViewController.swift */; };
 		4D5677811D47060A00395641 /* MCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5677801D47060A00395641 /* MCategoryViewController.swift */; };
 		4D5677831D47061700395641 /* MHotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5677821D47061700395641 /* MHotViewController.swift */; };
+		4D5677851D470ACB00395641 /* MHomeSigmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5677841D470ACB00395641 /* MHomeSigmentView.swift */; };
 		4DB317E21D45AD0800BEEADF /* MTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB317E11D45AD0800BEEADF /* MTabBarController.swift */; };
 		4DB317E41D45BB2100BEEADF /* MNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB317E31D45BB2100BEEADF /* MNavController.swift */; };
 		4DB317E61D45BB3600BEEADF /* MViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB317E51D45BB3600BEEADF /* MViewController.swift */; };
@@ -36,6 +37,8 @@
 		4D5677701D47053C00395641 /* MHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeViewController.swift; sourceTree = "<group>"; };
 		4D5677801D47060A00395641 /* MCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCategoryViewController.swift; sourceTree = "<group>"; };
 		4D5677821D47061700395641 /* MHotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHotViewController.swift; sourceTree = "<group>"; };
+		4D5677841D470ACB00395641 /* MHomeSigmentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeSigmentView.swift; sourceTree = "<group>"; };
+		4D5677871D470E3A00395641 /* Masonry-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Masonry-Header.h"; sourceTree = "<group>"; };
 		4DB317E11D45AD0800BEEADF /* MTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTabBarController.swift; sourceTree = "<group>"; };
 		4DB317E31D45BB2100BEEADF /* MNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MNavController.swift; sourceTree = "<group>"; };
 		4DB317E51D45BB3600BEEADF /* MViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +78,7 @@
 		4D2B57D31D4204CC008E6B19 /* Mark_Gift */ = {
 			isa = PBXGroup;
 			children = (
+				4D5677861D470E1400395641 /* Help */,
 				4DB317E01D45AC9100BEEADF /* BaseClass */,
 				4D56776F1D47049800395641 /* Modules */,
 				4D2B57D41D4204CC008E6B19 /* AppDelegate.swift */,
@@ -119,6 +123,7 @@
 		4D5677741D47055A00395641 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4D5677841D470ACB00395641 /* MHomeSigmentView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -192,6 +197,14 @@
 			children = (
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		4D5677861D470E1400395641 /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				4D5677871D470E3A00395641 /* Masonry-Header.h */,
+			);
+			name = Help;
 			sourceTree = "<group>";
 		};
 		4DB317E01D45AC9100BEEADF /* BaseClass */ = {
@@ -348,6 +361,7 @@
 				4DB317E41D45BB2100BEEADF /* MNavController.swift in Sources */,
 				4D5677831D47061700395641 /* MHotViewController.swift in Sources */,
 				4DB317E61D45BB3600BEEADF /* MViewController.swift in Sources */,
+				4D5677851D470ACB00395641 /* MHomeSigmentView.swift in Sources */,
 				4D5677711D47053C00395641 /* MHomeViewController.swift in Sources */,
 				4DB317E21D45AD0800BEEADF /* MTabBarController.swift in Sources */,
 				4D2B57D51D4204CC008E6B19 /* AppDelegate.swift in Sources */,
@@ -471,6 +485,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = come.233.gift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Mark_Gift/Masonry-Header.h";
 			};
 			name = Debug;
 		};
@@ -485,6 +500,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = come.233.gift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Mark_Gift/Masonry-Header.h";
 			};
 			name = Release;
 		};
