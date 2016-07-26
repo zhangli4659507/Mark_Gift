@@ -1,21 +1,18 @@
 //
-//  MNavController.swift
+//  MHotViewController.swift
 //  Mark_Gift
 //
-//  Created by Mark on 16/7/25.
+//  Created by Mark on 16/7/26.
 //  Copyright © 2016年 Mark. All rights reserved.
 //
 
 import UIKit
 
-class MNavController: UINavigationController {
+class MHotViewController: MViewController {
 
     override func viewDidLoad() {
-    super.viewDidLoad()
-    let color = UIColor(rgba: "#ff2d47")
-    UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: true)
-    self.navigationBar.barTintColor = color
-        self.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor(),NSFontAttributeName:UIFont(name:"Helvetica",size:17)!]
+        super.viewDidLoad()
+        navigationItem.leftBarButtonItem = nil
         // Do any additional setup after loading the view.
     }
 

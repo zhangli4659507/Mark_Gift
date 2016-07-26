@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import UIColor_Hex_Swift
 
 
 class MViewController: UIViewController {
@@ -16,17 +16,20 @@ class MViewController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.leftBarButtonItem = createBackBarItem()
+        
         // Do any additional setup after loading the view.
     }
 
     var backPop:(()->Void)?
-    
-    
+    /**
+     创建返回按钮
+     
+     - returns: 返回按钮
+     */
     func createBackBarItem() -> UIBarButtonItem {
-        let bactItem = UIButton(type: .Custom)
-        bactItem.setBackgroundImage(UIImage(named: "back"), forState: .Normal)
-        bactItem.addTarget(self, action: #selector(MViewController.backAction(_:)), forControlEvents: .TouchUpInside)
-         return UIBarButtonItem(customView: bactItem)
+       
+    let backIma = UIImage(named: "btnBack")?.imageWithRenderingMode(.AlwaysOriginal)
+     return   UIBarButtonItem(image: backIma, style: .Done, target: self, action: #selector(MViewController.backAction(_:)))
     }
     
     @objc private func backAction (button:UIButton) {

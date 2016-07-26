@@ -1,0 +1,6 @@
+framework module NetworkActivityIndicator {
+  umbrella header "NetworkActivityIndicator-umbrella.h"
+
+  export *
+  module * { export * }
+}

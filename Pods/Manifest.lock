@@ -1,0 +1,24 @@
+PODS:
+  - JSON (4.0.2)
+  - NetworkActivityIndicator (0.1.4)
+  - Networking (0.12.3):
+    - JSON (~> 4.0.2)
+    - NetworkActivityIndicator (~> 0.1.4)
+    - TestCheck (~> 0.3.0)
+  - TestCheck (0.3.0)
+  - UIColor_Hex_Swift (1.6)
+
+DEPENDENCIES:
+  - Networking
+  - UIColor_Hex_Swift
+
+SPEC CHECKSUMS:
+  JSON: d08f22c3e523be050d5d5f40bca43ec02d95b2cc
+  NetworkActivityIndicator: 406f51c6c833138245fffd2fabeb0e509c9ba05c
+  Networking: 671fc8bc517212177d0f1cecb6b8c54ed1a2158b
+  TestCheck: 42c1343664986c0cbfaa20a62622d6f6fb70a407
+  UIColor_Hex_Swift: c4147b9bdc5b799ec2dfe384672445fd08dca07e
+
+PODFILE CHECKSUM: 7202ea7bbd30ab1dea2e8ce876295eac73403eb0
+
+COCOAPODS: 1.0.1

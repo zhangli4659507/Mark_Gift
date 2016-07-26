@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--分类-->
         <scene sceneID="Cdf-P7-YSU">
             <objects>
-                <viewController id="F4i-5m-KTP" sceneMemberID="viewController">
+                <viewController id="F4i-5m-KTP" customClass="MCategoryViewController" customModule="Mark_Gift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ze5-fP-V7s"/>
                         <viewControllerLayoutGuide type="bottom" id="Y8p-fg-RJD"/>
@@ -17,17 +17,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Wev-kR-b9g"/>
+                    <navigationItem key="navigationItem" title="分类" id="Wev-kR-b9g"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P1K-Qu-uPw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1219" y="1309"/>
         </scene>
-        <!--View Controller-->
+        <!--热门-->
         <scene sceneID="cln-bu-eDm">
             <objects>
-                <viewController id="HJx-wo-Urz" sceneMemberID="viewController">
+                <viewController id="HJx-wo-Urz" customClass="MHotViewController" customModule="Mark_Gift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5Vv-Gz-nhl"/>
                         <viewControllerLayoutGuide type="bottom" id="G9W-7y-dFo"/>
@@ -37,16 +37,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="YN7-p9-2p7"/>
+                    <navigationItem key="navigationItem" title="热门" id="YN7-p9-2p7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Be-a3-Rf6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1219" y="723"/>
         </scene>
-        <!--View Controller-->
+        <!--礼物说-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Mark_Gift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="礼物说" id="BYZ-38-t0r" customClass="MHomeViewController" customModule="Mark_Gift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -65,13 +65,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="lUz-W9-usJ"/>
+                    <navigationItem key="navigationItem" title="礼物说" id="lUz-W9-usJ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1214" y="171"/>
         </scene>
-        <!--View Controller-->
+        <!--礼物详情-->
         <scene sceneID="iLb-JZ-7IY">
             <objects>
                 <viewController id="fmZ-XX-n9R" customClass="MViewController" customModule="Mark_Gift" customModuleProvider="target" sceneMemberID="viewController">
@@ -84,7 +84,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="jD6-v1-djc"/>
+                    <navigationItem key="navigationItem" title="礼物详情" id="jD6-v1-djc"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Fc-Bp-4dN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -114,7 +114,7 @@
         <!--礼物说-->
         <scene sceneID="YtA-MG-THy">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5Yl-uQ-7mb" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5Yl-uQ-7mb" customClass="MNavController" customModule="Mark_Gift" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="礼物说" image="tabbar_home" selectedImage="tabbar_home_selected" id="Q4b-mW-CTO">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
@@ -135,7 +135,7 @@
         <!--热门-->
         <scene sceneID="w2A-Tw-dGz">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="guH-R0-mxg" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="guH-R0-mxg" customClass="MNavController" customModule="Mark_Gift" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="热门" image="tabbar_gift" selectedImage="tabbar_gift_selected" id="3UY-sk-z6b"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="r2D-R6-VSd">
@@ -154,7 +154,7 @@
         <!--分类-->
         <scene sceneID="kNh-Zk-Znd">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HPM-Jc-B6Y" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HPM-Jc-B6Y" customClass="MNavController" customModule="Mark_Gift" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="分类" image="tabbar_category" selectedImage="tabbar_category_selected" id="ZaN-HU-Kyk"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QCF-w4-fnK">
