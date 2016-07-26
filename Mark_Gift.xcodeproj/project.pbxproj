@@ -18,6 +18,11 @@
 		4D5677811D47060A00395641 /* MCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5677801D47060A00395641 /* MCategoryViewController.swift */; };
 		4D5677831D47061700395641 /* MHotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5677821D47061700395641 /* MHotViewController.swift */; };
 		4D5677851D470ACB00395641 /* MHomeSigmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5677841D470ACB00395641 /* MHomeSigmentView.swift */; };
+		4D5677891D47159A00395641 /* MSegmentTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5677881D47159A00395641 /* MSegmentTypeModel.swift */; };
+		4D56778B1D47343600395641 /* MHttpTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D56778A1D47343600395641 /* MHttpTool.swift */; };
+		4D56778E1D47412700395641 /* UIColor+MColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D56778D1D47412700395641 /* UIColor+MColor.swift */; };
+		4D5677901D4744B900395641 /* NSString+Width.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D56778F1D4744B900395641 /* NSString+Width.swift */; };
+		4D5677921D475F2800395641 /* UIView+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5677911D475F2800395641 /* UIView+Frame.swift */; };
 		4DB317E21D45AD0800BEEADF /* MTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB317E11D45AD0800BEEADF /* MTabBarController.swift */; };
 		4DB317E41D45BB2100BEEADF /* MNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB317E31D45BB2100BEEADF /* MNavController.swift */; };
 		4DB317E61D45BB3600BEEADF /* MViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB317E51D45BB3600BEEADF /* MViewController.swift */; };
@@ -39,6 +44,11 @@
 		4D5677821D47061700395641 /* MHotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHotViewController.swift; sourceTree = "<group>"; };
 		4D5677841D470ACB00395641 /* MHomeSigmentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeSigmentView.swift; sourceTree = "<group>"; };
 		4D5677871D470E3A00395641 /* Masonry-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Masonry-Header.h"; sourceTree = "<group>"; };
+		4D5677881D47159A00395641 /* MSegmentTypeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSegmentTypeModel.swift; sourceTree = "<group>"; };
+		4D56778A1D47343600395641 /* MHttpTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHttpTool.swift; sourceTree = "<group>"; };
+		4D56778D1D47412700395641 /* UIColor+MColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+MColor.swift"; sourceTree = "<group>"; };
+		4D56778F1D4744B900395641 /* NSString+Width.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+Width.swift"; sourceTree = "<group>"; };
+		4D5677911D475F2800395641 /* UIView+Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Frame.swift"; sourceTree = "<group>"; };
 		4DB317E11D45AD0800BEEADF /* MTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTabBarController.swift; sourceTree = "<group>"; };
 		4DB317E31D45BB2100BEEADF /* MNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MNavController.swift; sourceTree = "<group>"; };
 		4DB317E51D45BB3600BEEADF /* MViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +141,7 @@
 		4D5677751D47056100395641 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4D5677881D47159A00395641 /* MSegmentTypeModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -202,9 +213,21 @@
 		4D5677861D470E1400395641 /* Help */ = {
 			isa = PBXGroup;
 			children = (
+				4D56778C1D4740C700395641 /* Category */,
 				4D5677871D470E3A00395641 /* Masonry-Header.h */,
+				4D56778A1D47343600395641 /* MHttpTool.swift */,
 			);
 			name = Help;
+			sourceTree = "<group>";
+		};
+		4D56778C1D4740C700395641 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				4D56778D1D47412700395641 /* UIColor+MColor.swift */,
+				4D56778F1D4744B900395641 /* NSString+Width.swift */,
+				4D5677911D475F2800395641 /* UIView+Frame.swift */,
+			);
+			name = Category;
 			sourceTree = "<group>";
 		};
 		4DB317E01D45AC9100BEEADF /* BaseClass */ = {
@@ -357,9 +380,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D5677901D4744B900395641 /* NSString+Width.swift in Sources */,
 				4D2B57D71D4204CC008E6B19 /* ViewController.swift in Sources */,
 				4DB317E41D45BB2100BEEADF /* MNavController.swift in Sources */,
 				4D5677831D47061700395641 /* MHotViewController.swift in Sources */,
+				4D5677921D475F2800395641 /* UIView+Frame.swift in Sources */,
+				4D56778E1D47412700395641 /* UIColor+MColor.swift in Sources */,
+				4D56778B1D47343600395641 /* MHttpTool.swift in Sources */,
+				4D5677891D47159A00395641 /* MSegmentTypeModel.swift in Sources */,
 				4DB317E61D45BB3600BEEADF /* MViewController.swift in Sources */,
 				4D5677851D470ACB00395641 /* MHomeSigmentView.swift in Sources */,
 				4D5677711D47053C00395641 /* MHomeViewController.swift in Sources */,

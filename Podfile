@@ -7,4 +7,5 @@ pod 'UIColor_Hex_Swift'
 pod 'Networking'
 pod 'Masonry'
 pod 'SDWebImage'
+pod 'MJExtension'
 end 

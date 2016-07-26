@@ -15,6 +15,11 @@ class MViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.automaticallyAdjustsScrollViewInsets = false
+        self.automaticallyAdjustsScrollViewInsets = false;
+        self.edgesForExtendedLayout = UIRectEdge.None
+        self.extendedLayoutIncludesOpaqueBars = false;
+        self.modalPresentationCapturesStatusBarAppearance = false;
         navigationItem.leftBarButtonItem = createBackBarItem()
         
         // Do any additional setup after loading the view.
