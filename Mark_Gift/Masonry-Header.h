@@ -7,3 +7,4 @@
 //
 
 #import <Masonry/Masonry.h>
+#import <SDWebImage/UIImageView+WebCache.h>
