@@ -29,6 +29,7 @@
 		4DE138521D483B5400524DBE /* MTypePushView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE138511D483B5400524DBE /* MTypePushView.swift */; };
 		4DE138571D483F2200524DBE /* MTypesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE138551D483F2200524DBE /* MTypesCollectionViewCell.swift */; };
 		4DE138581D483F2200524DBE /* MTypesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE138561D483F2200524DBE /* MTypesCollectionViewCell.xib */; };
+		4DE1385A1D48931400524DBE /* EHomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE138591D48931400524DBE /* EHomePageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		4DE138511D483B5400524DBE /* MTypePushView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTypePushView.swift; sourceTree = "<group>"; };
 		4DE138551D483F2200524DBE /* MTypesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTypesCollectionViewCell.swift; sourceTree = "<group>"; };
 		4DE138561D483F2200524DBE /* MTypesCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTypesCollectionViewCell.xib; sourceTree = "<group>"; };
+		4DE138591D48931400524DBE /* EHomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EHomePageViewController.swift; sourceTree = "<group>"; };
 		DD354C2551DA6E1054C4348F /* Pods-Mark_Gift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mark_Gift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mark_Gift/Pods-Mark_Gift.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				4D5677701D47053C00395641 /* MHomeViewController.swift */,
+				4DE138591D48931400524DBE /* EHomePageViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 			files = (
 				4D5677901D4744B900395641 /* NSString+Width.swift in Sources */,
 				4D2B57D71D4204CC008E6B19 /* ViewController.swift in Sources */,
+				4DE1385A1D48931400524DBE /* EHomePageViewController.swift in Sources */,
 				4DE138571D483F2200524DBE /* MTypesCollectionViewCell.swift in Sources */,
 				4DB317E41D45BB2100BEEADF /* MNavController.swift in Sources */,
 				4D5677831D47061700395641 /* MHotViewController.swift in Sources */,

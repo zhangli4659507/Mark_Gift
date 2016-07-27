@@ -10,7 +10,6 @@
 import UIKit
 class MHomeSigmentView: UIView {
 
-    
     var actionIndexCourse:((Int,MSegmentTypeModel)->Void)?
     private var baseView:UIView?
     private var BottomLineView:UIView?
@@ -19,20 +18,6 @@ class MHomeSigmentView: UIView {
     private var typeBtn:UIButton?
     private var pushViewState = true
     private var curSelectIndex:Int = 0
-//        {
-//        didSet {
-//        self.pushView.curSelectIndex = self.curSelectIndex
-//            
-//            for view in (self.scorllView?.subviews)! {
-//                if view.isKindOfClass(UIButton) {
-//                    if view.tag == self.curSelectIndex {
-//                        self.actionBtn(view as! UIButton)
-//                    }
-//                }
-//            }
-//        }
-//    }
-    
     private lazy var coverLabel: UILabel = {
     
         let label = UILabel()
@@ -64,9 +49,15 @@ class MHomeSigmentView: UIView {
     
         let clearView = UIView()
         clearView.backgroundColor = UIColor.clearColor()
-       
-        let tap = UITapGestureRecognizer(target: self, action: #selector(MHomeSigmentView.actionTap))
-        clearView.addGestureRecognizer(tap)
+        let control = UIControl()
+        clearView.addSubview(control)
+        control.mas_makeConstraints({ (make) in
+          make.edges.equalTo()(clearView).insets()(UIEdgeInsetsZero)
+        })
+        control.addTarget(self, action: #selector(MHomeSigmentView.actionTap), forControlEvents: .TouchUpInside)
+//        control.addTarget(self, action: #selector(MHomeSigmentView.actionTap)), forControlEvents: UIControlEventTouchUpInside)
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(MHomeSigmentView.actionTap))
+//        clearView.addGestureRecognizer(tap)
         
         return clearView
         
@@ -109,18 +100,27 @@ class MHomeSigmentView: UIView {
         lineView.backgroundColor = UIColor().M_Line_color
         self.addSubview(lineView)
         lineView.mas_makeConstraints { (make) in
+            
             make.leading.bottom().trailing().equalTo()(self).offset()(0.0)
-            make.height.offset()(-0.5)
+            make.height.offset()(0.5)
         }
         
         self.addSubview(self.coverLabel)
         self.coverLabel.hidden = true
         self.coverLabel.mas_makeConstraints { (make) in
-            make.bottom.equalTo()(self).offset()(0.5)
-            make.leading.top().bottom().equalTo()(self).offset()(0)
+            make.bottom.equalTo()(self).offset()(-0.5)
+            make.leading.top().equalTo()(self).offset()(0)
             make.trailing.equalTo()(self.typeBtn?.mas_leading).offset()(0)
         }
         
+    }
+    
+    func changeCurIndex(index: Int)  {
+        for view in (self.scorllView?.subviews)! {
+            if view.isKindOfClass(UIButton) && view.tag == index {
+                self.actionBtn(view as! UIButton)
+            }
+        }
     }
     
     func reloadData(dataArr:NSMutableArray,fentchFunc:(model:MSegmentTypeModel)->String)  {
@@ -128,7 +128,7 @@ class MHomeSigmentView: UIView {
         self.typesModel = dataArr
         self.scorllView?.removeAllSubViews()
         self.pushView.typesArr = dataArr
-        for index in 0...dataArr.count-1 {
+        for index in 0 ..< dataArr.count {
             let model:MSegmentTypeModel = dataArr[index] as! MSegmentTypeModel
             let name = fentchFunc(model: model)
             let btn:UIButton = UIButton(type: .Custom)
@@ -154,19 +154,20 @@ class MHomeSigmentView: UIView {
         }
         self.scorllView?.contentSize = CGSizeMake(cur_X, 0);
 
-        
         self.pushBaseView.hidden = true
-        self.clearView.hidden = true
         self.baseView?.addSubview(self.pushBaseView)
-        self.baseView?.addSubview(self.clearView)
         self.pushBaseView.mas_makeConstraints { (make) in
             make.edges.equalTo()(self.baseView).insets()(UIEdgeInsetsMake(55, 0, 0, 0))
         }
+        
+        self.clearView.hidden = true
+        self.baseView?.addSubview(self.clearView)
         self.clearView.mas_makeConstraints { (make) in
             make.edges.equalTo()(self.baseView).insets()(UIEdgeInsetsMake(55, 0, 0, 0))
         }
-        
+
         self.clearView.addSubview(self.pushView)
+        self.clearView.bringSubviewToFront(self.pushView)
         self.pushView.mas_makeConstraints { (make) in
             make.top.equalTo()(self.clearView).offset()(0)
             make.height.offset()(0.5)
@@ -174,17 +175,12 @@ class MHomeSigmentView: UIView {
         }
         
         self.pushView.selectIndexCourse = {index in
-            for view in (self.scorllView?.subviews)! {
-                if view.isKindOfClass(UIButton) && view.tag == index {
-                    self.actionBtn(view as! UIButton)
-                }
-            }
-            
+            self.changeCurIndex(index)
         }
         self.clearView.layoutIfNeeded()
     }
     
-    @objc private func actionTap(){
+    @objc private func actionTap() {
     
        self.actionBtnType(self.typeBtn!)
     }

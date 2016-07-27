@@ -8,10 +8,14 @@
 
 import UIKit
 
-class MHomeViewController: MViewController {
+class MHomeViewController: MViewController,UIPageViewControllerDataSource,UIPageViewControllerDelegate {
     
     
     var topView:MHomeSigmentView?
+    var pageVc:UIPageViewController?
+    var viewcontrollers:[EHomePageViewController] = Array()
+    var types:NSMutableArray?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,16 +23,14 @@ class MHomeViewController: MViewController {
        
         createUI()
        
-        
         MHttpTool.getRequestData("v2/channels/preset?gender=2&generation=2", success: { (response) in
             
             let arrTypes:NSMutableArray? = MSegmentTypeModel.mj_objectArrayWithKeyValuesArray(response?.data!["channels"])
+            self.types = arrTypes
             self.topView?.reloadData(arrTypes!, fentchFunc: { (model) -> String in
                 return model.name!
             })
-//            print("\(model.id)+\(model.name)+\(model.editable)")
-            
-            
+            self.initViewcontrollers(arrTypes!)
             }) { (error) in
           print("error")
         }
@@ -40,13 +42,83 @@ class MHomeViewController: MViewController {
     func createUI(){
       self.topView = MHomeSigmentView(frame: CGRectZero, baseView: view)
       self.view.addSubview(self.topView!)
+        self.topView?.actionIndexCourse = {(index,model) in
+            
+            self.pageVc?.setViewControllers([self.viewcontrollers[index]], direction: .Forward, animated: true, completion: { (state) in
+                
+            })
+        }
       self.topView?.mas_makeConstraints({ (make) in
         make.leading.top().trailing().equalTo()(self.view).offset()(0.0)
         make.height.offset()(55)
       })
         
+        self.pageVc = UIPageViewController(transitionStyle: .Scroll, navigationOrientation: .Horizontal, options:  nil)
+        self.addChildViewController(self.pageVc!)
+        self.view.addSubview((self.pageVc?.view)!)
+        self.pageVc?.delegate = self
+        self.pageVc?.dataSource = self
+        self.pageVc?.view.mas_makeConstraints({ (make) in
+        make.top.equalTo()(self.topView?.mas_bottom).offset()(0)
+        make.bottom.leading().trailing().equalTo()(self.view).offset()(0)
+        })
+       
+        
     }
     
+    func initViewcontrollers(types: NSMutableArray) {
+    
+        for index in 0 ..< types.count  {
+//            let model = types.objectAtIndex(index) as! MSegmentTypeModel
+            let vc:EHomePageViewController = EHomePageViewController()
+            vc.curIndex = index
+            if index%2 == 0 {
+                vc.view.backgroundColor = UIColor.grayColor()
+            } else {
+            
+                vc.view.backgroundColor = UIColor.redColor()
+            }
+            viewcontrollers.append(vc)
+        }
+        if types.count > 0 {
+            let vc:EHomePageViewController = viewcontrollers[0]
+            vc.model = types.objectAtIndex(0) as? MSegmentTypeModel
+            self.pageVc?.setViewControllers([vc], direction: .Forward, animated: true, completion: { (state) in
+                
+            })
+        }
+       
+        
+    }
+    
+    //后一个
+    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
+        
+        let curVc:EHomePageViewController = viewController as!EHomePageViewController
+        self.topView?.changeCurIndex(curVc.curIndex)
+        if curVc.model == nil {
+            curVc.model = types?.objectAtIndex(curVc.curIndex) as? MSegmentTypeModel
+        }
+        
+        let index:Int = curVc.curIndex + 1
+        if index == viewcontrollers.count {
+            return nil
+        }
+        return viewcontrollers[index]
+    }
+    
+    func  pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+        let curVc:EHomePageViewController = viewController as!EHomePageViewController
+        self.topView?.changeCurIndex(curVc.curIndex)
+        if curVc.model == nil {
+            curVc.model = types?.objectAtIndex(curVc.curIndex) as? MSegmentTypeModel
+        }
+        let index:Int = curVc.curIndex - 1
+        if index < 0 || index == NSNotFound {
+            return nil
+        }
+        return viewcontrollers[index]
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
