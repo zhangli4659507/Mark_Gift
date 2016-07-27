@@ -35,7 +35,7 @@ class MHomeSigmentView: UIView {
         self.addSubview(self.typeBtn!)
         self.typeBtn?.adjustsImageWhenDisabled = false
         self.typeBtn?.adjustsImageWhenHighlighted = false
-        typeBtn?.addTarget(self, action: <#T##Selector#>, forControlEvents: .TouchUpInside)
+        typeBtn?.addTarget(self, action: #selector(MHomeSigmentView.actionBtnType(_:)), forControlEvents: .TouchUpInside)
         self.typeBtn?.mas_makeConstraints({ (make) in
             make.top.bottom().trailing().equalTo()(self).offset()(0)
             make.width.offset()(55)
