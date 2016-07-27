@@ -26,6 +26,9 @@
 		4DB317E21D45AD0800BEEADF /* MTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB317E11D45AD0800BEEADF /* MTabBarController.swift */; };
 		4DB317E41D45BB2100BEEADF /* MNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB317E31D45BB2100BEEADF /* MNavController.swift */; };
 		4DB317E61D45BB3600BEEADF /* MViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB317E51D45BB3600BEEADF /* MViewController.swift */; };
+		4DE138521D483B5400524DBE /* MTypePushView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE138511D483B5400524DBE /* MTypePushView.swift */; };
+		4DE138571D483F2200524DBE /* MTypesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE138551D483F2200524DBE /* MTypesCollectionViewCell.swift */; };
+		4DE138581D483F2200524DBE /* MTypesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE138561D483F2200524DBE /* MTypesCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +55,9 @@
 		4DB317E11D45AD0800BEEADF /* MTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTabBarController.swift; sourceTree = "<group>"; };
 		4DB317E31D45BB2100BEEADF /* MNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MNavController.swift; sourceTree = "<group>"; };
 		4DB317E51D45BB3600BEEADF /* MViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MViewController.swift; sourceTree = "<group>"; };
+		4DE138511D483B5400524DBE /* MTypePushView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTypePushView.swift; sourceTree = "<group>"; };
+		4DE138551D483F2200524DBE /* MTypesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTypesCollectionViewCell.swift; sourceTree = "<group>"; };
+		4DE138561D483F2200524DBE /* MTypesCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTypesCollectionViewCell.xib; sourceTree = "<group>"; };
 		DD354C2551DA6E1054C4348F /* Pods-Mark_Gift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mark_Gift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mark_Gift/Pods-Mark_Gift.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,6 +140,9 @@
 			isa = PBXGroup;
 			children = (
 				4D5677841D470ACB00395641 /* MHomeSigmentView.swift */,
+				4DE138511D483B5400524DBE /* MTypePushView.swift */,
+				4DE138551D483F2200524DBE /* MTypesCollectionViewCell.swift */,
+				4DE138561D483F2200524DBE /* MTypesCollectionViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -319,6 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D2B57DF1D4204CC008E6B19 /* LaunchScreen.storyboard in Resources */,
+				4DE138581D483F2200524DBE /* MTypesCollectionViewCell.xib in Resources */,
 				4D2B57E71D420A23008E6B19 /* LaunchImage.xcassets in Resources */,
 				4D2B57DC1D4204CC008E6B19 /* Assets.xcassets in Resources */,
 				4D2B57DA1D4204CC008E6B19 /* Main.storyboard in Resources */,
@@ -382,6 +392,7 @@
 			files = (
 				4D5677901D4744B900395641 /* NSString+Width.swift in Sources */,
 				4D2B57D71D4204CC008E6B19 /* ViewController.swift in Sources */,
+				4DE138571D483F2200524DBE /* MTypesCollectionViewCell.swift in Sources */,
 				4DB317E41D45BB2100BEEADF /* MNavController.swift in Sources */,
 				4D5677831D47061700395641 /* MHotViewController.swift in Sources */,
 				4D5677921D475F2800395641 /* UIView+Frame.swift in Sources */,
@@ -394,6 +405,7 @@
 				4DB317E21D45AD0800BEEADF /* MTabBarController.swift in Sources */,
 				4D2B57D51D4204CC008E6B19 /* AppDelegate.swift in Sources */,
 				4D5677811D47060A00395641 /* MCategoryViewController.swift in Sources */,
+				4DE138521D483B5400524DBE /* MTypePushView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

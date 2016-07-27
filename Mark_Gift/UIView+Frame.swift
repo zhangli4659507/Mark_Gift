@@ -10,7 +10,11 @@
 
 import UIKit
 
+
+let KScreenWidth:CGFloat = CGRectGetWidth(UIScreen.mainScreen().bounds)
+let KScreenHeight:CGFloat = CGRectGetHeight(UIScreen.mainScreen().bounds)
 extension UIView {
+
 
     var x:CGFloat {
     
@@ -60,5 +64,13 @@ extension UIView {
         }
 
     }
+    
+    func removeAllSubViews()  {
+        while self.subviews.count > 0 {
+            let view:UIView = self.subviews.first!
+            view.removeFromSuperview()
+        }
+    }
+    
     
 }

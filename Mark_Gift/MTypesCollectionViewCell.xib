@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MTypesCollectionViewCell" customModule="Mark_Gift" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="357" height="272"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="357" height="272"/>
+                <subviews>
+                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Ob-cE-QLs">
+                        <rect key="frame" x="-9" y="202" width="358" height="62"/>
+                        <color key="backgroundColor" red="0.85490196078431369" green="0.85490196078431369" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="CcA-St-xLp"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hbG-lh-lEL">
+                        <rect key="frame" x="307" y="0.0" width="31" height="264"/>
+                        <color key="backgroundColor" red="0.85490196080000003" green="0.85490196080000003" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="0.5" id="BXR-ig-o7C"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0ze-vb-Ir8">
+                        <rect key="frame" x="58" y="143" width="240" height="121"/>
+                        <color key="backgroundColor" red="1" green="0.1764705882352941" blue="0.27843137254901962" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="3" id="jPZ-Ef-NWj"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ls1-oB-4BT">
+                        <rect key="frame" x="122" y="77" width="46" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <state key="normal" title="精选">
+                            <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="ls1-oB-4BT" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="1cg-Lh-mhs"/>
+                <constraint firstItem="ls1-oB-4BT" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="4L9-O2-mD6"/>
+                <constraint firstAttribute="bottom" secondItem="hbG-lh-lEL" secondAttribute="bottom" id="85I-Sr-4TQ"/>
+                <constraint firstItem="2Ob-cE-QLs" firstAttribute="top" secondItem="ls1-oB-4BT" secondAttribute="bottom" id="8of-Bh-V6V"/>
+                <constraint firstItem="0ze-vb-Ir8" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="DrG-6l-PeE"/>
+                <constraint firstAttribute="trailing" secondItem="hbG-lh-lEL" secondAttribute="trailing" id="HbY-4j-yDd"/>
+                <constraint firstAttribute="bottom" secondItem="0ze-vb-Ir8" secondAttribute="bottom" id="Tg9-9d-fPC"/>
+                <constraint firstItem="2Ob-cE-QLs" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="WqZ-ax-Ujf"/>
+                <constraint firstItem="hbG-lh-lEL" firstAttribute="leading" secondItem="0ze-vb-Ir8" secondAttribute="trailing" id="due-K1-gWo"/>
+                <constraint firstAttribute="trailing" secondItem="2Ob-cE-QLs" secondAttribute="trailing" id="ewd-2u-zSf"/>
+                <constraint firstAttribute="bottom" secondItem="2Ob-cE-QLs" secondAttribute="bottom" id="nAz-s5-XCt"/>
+                <constraint firstItem="hbG-lh-lEL" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="s9e-eO-QPK"/>
+                <constraint firstItem="hbG-lh-lEL" firstAttribute="leading" secondItem="ls1-oB-4BT" secondAttribute="trailing" id="swe-RS-Rrd"/>
+            </constraints>
+            <size key="customSize" width="357" height="272"/>
+            <connections>
+                <outlet property="bottomViewLine" destination="2Ob-cE-QLs" id="btq-Oe-5fY"/>
+                <outlet property="btnType" destination="ls1-oB-4BT" id="bY4-Vy-Nxg"/>
+                <outlet property="leftLineView" destination="hbG-lh-lEL" id="kL6-P9-PyT"/>
+                <outlet property="selectecLineView" destination="0ze-vb-Ir8" id="vfU-kF-uwX"/>
+            </connections>
+            <point key="canvasLocation" x="127.5" y="351"/>
+        </collectionViewCell>
+    </objects>
+</document>

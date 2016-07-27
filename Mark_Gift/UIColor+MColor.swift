@@ -18,4 +18,22 @@ extension UIColor {
     
         return UIColor(rgba: "#333333")
     }
+    
+    var M_Line_color: UIColor {
+    
+        return UIColor(rgba: "#dadada")
+    }
+    
+    var M_Hex_LightGray: UIColor {
+    
+        return UIColor(rgba: "#f1f3f3")
+    }
+    
+    var M_Hex_GrayTextColor: UIColor {
+    
+        return UIColor(rgba: "#8e8e8e")
+    }
+    
+    
+    
 }
