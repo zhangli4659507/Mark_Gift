@@ -22,7 +22,6 @@ class MHomeViewController: MViewController,UIPageViewControllerDataSource,UIPage
         navigationItem.leftBarButtonItem = nil
        
         createUI()
-       
         MHttpTool.getRequestData("v2/channels/preset?gender=2&generation=2", success: { (response) in
             
             let arrTypes:NSMutableArray? = MSegmentTypeModel.mj_objectArrayWithKeyValuesArray(response?.data!["channels"])
@@ -44,7 +43,11 @@ class MHomeViewController: MViewController,UIPageViewControllerDataSource,UIPage
       self.view.addSubview(self.topView!)
         self.topView?.actionIndexCourse = {(index,model) in
             
-            self.pageVc?.setViewControllers([self.viewcontrollers[index]], direction: .Forward, animated: true, completion: { (state) in
+            let vc:EHomePageViewController = (self.viewcontrollers[index] as? EHomePageViewController)!
+            if vc.model == nil {
+                vc.model = model
+            }
+            self.pageVc?.setViewControllers([vc], direction: .Forward, animated: true, completion: { (state) in
                 
             })
         }

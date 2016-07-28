@@ -8,7 +8,9 @@
 
 import UIKit
 
-class EHomePageViewController: MViewController {
+
+
+class EHomePageViewController: MViewController,UITableViewDelegate,UITableViewDataSource {
 
     
     var curIndex = 0 {
@@ -22,23 +24,74 @@ class EHomePageViewController: MViewController {
     var  model:MSegmentTypeModel? = nil {
     
         didSet{
-        
+            self.requestData(true, isMore: false)
         }
     }
     
+    private lazy var tableView: UITableView = {
+    
+        let tableView:UITableView = UITableView(frame: self.view.bounds)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 200
+        tableView.separatorStyle = .None
+        return tableView
+    }()
+    
+    var arrData: NSMutableArray? = NSMutableArray()
+    var offset: Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let label = UILabel(frame: self.view.bounds)
-        label.backgroundColor = UIColor.yellowColor()
-        label.textColor = UIColor.blackColor()
-        label.font = UIFont.systemFontOfSize(20)
-        label.text = String(curIndex)
-        self.view.addSubview(label)
+        self.view.addSubview(self.tableView)
+        tableView.mas_makeConstraints({ (make) in
+            make.edges.equalTo()(self.view).insets()(UIEdgeInsetsZero)
+            
+        })
+        self.tableView.tableViewRegiesterNibName("MChanelListCell")
 //        self.view.backgroundColor = UIColor.redColor()
         // Do any additional setup after loading the view.
     }
 
+    func requestData(isHeader: Bool, isMore:Bool) {
+    
+        
+        if isHeader {
+            offset = 0
+            arrData?.removeAllObjects()
+        }
+//        http://api.liwushuo.com/v2/channels/104/items_v2?ad=2&gender=2&generation=2&limit=10&offset=0
+        let strUrl: String = "v2/channels/\(Int((model?.id)! as! NSNumber))/items_v2?gender=2&generation=2&limit=20&offset=\(offset)"
+         MHttpTool.getRequestData(strUrl, success: { (response) in
+            
+            let basicModel:MListDataModel = MListDataModel.mj_objectWithKeyValues(response?.data)
+            self.arrData?.addObjectsFromArray(basicModel.items!)
+            self.tableView.reloadData()
+            }) { (error) in
+                
+        }
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return (arrData?.count)!
+    }
+
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell:MChanelListCell = tableView.dequeueReusableCellWithIdentifier("MChanelListCell") as! MChanelListCell
+        cell.valueModel = arrData![indexPath.row] as? MGiftListModel
+        
+        return cell
+    }
+    
+//    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        return 400
+//    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

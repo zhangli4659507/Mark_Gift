@@ -74,3 +74,20 @@ extension UIView {
     
     
 }
+
+extension UIView {
+
+    public  func roundView(round: CGFloat) {
+    
+        self.layer.masksToBounds = true
+        self.layer.cornerRadius = round
+    }
+}
+
+extension UITableView {
+
+    func tableViewRegiesterNibName(nibName:String)  {
+        let nib:UINib = UINib(nibName: nibName, bundle: NSBundle.mainBundle())
+        self.registerNib(nib, forCellReuseIdentifier: nibName)
+    }
+}

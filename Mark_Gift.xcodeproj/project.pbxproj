@@ -23,6 +23,9 @@
 		4D56778E1D47412700395641 /* UIColor+MColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D56778D1D47412700395641 /* UIColor+MColor.swift */; };
 		4D5677901D4744B900395641 /* NSString+Width.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D56778F1D4744B900395641 /* NSString+Width.swift */; };
 		4D5677921D475F2800395641 /* UIView+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5677911D475F2800395641 /* UIView+Frame.swift */; };
+		4D74A4801D498E7F0092F11D /* MChanelListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D74A47E1D498E7F0092F11D /* MChanelListCell.swift */; };
+		4D74A4811D498E7F0092F11D /* MChanelListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D74A47F1D498E7F0092F11D /* MChanelListCell.xib */; };
+		4D74A4831D4993880092F11D /* MGiftListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D74A4821D4993880092F11D /* MGiftListModel.swift */; };
 		4DB317E21D45AD0800BEEADF /* MTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB317E11D45AD0800BEEADF /* MTabBarController.swift */; };
 		4DB317E41D45BB2100BEEADF /* MNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB317E31D45BB2100BEEADF /* MNavController.swift */; };
 		4DB317E61D45BB3600BEEADF /* MViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB317E51D45BB3600BEEADF /* MViewController.swift */; };
@@ -53,6 +56,9 @@
 		4D56778D1D47412700395641 /* UIColor+MColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+MColor.swift"; sourceTree = "<group>"; };
 		4D56778F1D4744B900395641 /* NSString+Width.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+Width.swift"; sourceTree = "<group>"; };
 		4D5677911D475F2800395641 /* UIView+Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Frame.swift"; sourceTree = "<group>"; };
+		4D74A47E1D498E7F0092F11D /* MChanelListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MChanelListCell.swift; sourceTree = "<group>"; };
+		4D74A47F1D498E7F0092F11D /* MChanelListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MChanelListCell.xib; sourceTree = "<group>"; };
+		4D74A4821D4993880092F11D /* MGiftListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGiftListModel.swift; sourceTree = "<group>"; };
 		4DB317E11D45AD0800BEEADF /* MTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTabBarController.swift; sourceTree = "<group>"; };
 		4DB317E31D45BB2100BEEADF /* MNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MNavController.swift; sourceTree = "<group>"; };
 		4DB317E51D45BB3600BEEADF /* MViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +152,8 @@
 				4DE138511D483B5400524DBE /* MTypePushView.swift */,
 				4DE138551D483F2200524DBE /* MTypesCollectionViewCell.swift */,
 				4DE138561D483F2200524DBE /* MTypesCollectionViewCell.xib */,
+				4D74A47E1D498E7F0092F11D /* MChanelListCell.swift */,
+				4D74A47F1D498E7F0092F11D /* MChanelListCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -154,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				4D5677881D47159A00395641 /* MSegmentTypeModel.swift */,
+				4D74A4821D4993880092F11D /* MGiftListModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -330,6 +339,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D74A4811D498E7F0092F11D /* MChanelListCell.xib in Resources */,
 				4D2B57DF1D4204CC008E6B19 /* LaunchScreen.storyboard in Resources */,
 				4DE138581D483F2200524DBE /* MTypesCollectionViewCell.xib in Resources */,
 				4D2B57E71D420A23008E6B19 /* LaunchImage.xcassets in Resources */,
@@ -393,6 +403,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D74A4801D498E7F0092F11D /* MChanelListCell.swift in Sources */,
 				4D5677901D4744B900395641 /* NSString+Width.swift in Sources */,
 				4D2B57D71D4204CC008E6B19 /* ViewController.swift in Sources */,
 				4DE1385A1D48931400524DBE /* EHomePageViewController.swift in Sources */,
@@ -410,6 +421,7 @@
 				4D2B57D51D4204CC008E6B19 /* AppDelegate.swift in Sources */,
 				4D5677811D47060A00395641 /* MCategoryViewController.swift in Sources */,
 				4DE138521D483B5400524DBE /* MTypePushView.swift in Sources */,
+				4D74A4831D4993880092F11D /* MGiftListModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
