@@ -65,22 +65,13 @@ class MHomeViewController: MViewController,UIPageViewControllerDataSource,UIPage
         make.top.equalTo()(self.topView?.mas_bottom).offset()(0)
         make.bottom.leading().trailing().equalTo()(self.view).offset()(0)
         })
-       
-        
     }
     
     func initViewcontrollers(types: NSMutableArray) {
     
         for index in 0 ..< types.count  {
-//            let model = types.objectAtIndex(index) as! MSegmentTypeModel
             let vc:EHomePageViewController = EHomePageViewController()
             vc.curIndex = index
-            if index%2 == 0 {
-                vc.view.backgroundColor = UIColor.grayColor()
-            } else {
-            
-                vc.view.backgroundColor = UIColor.redColor()
-            }
             viewcontrollers.append(vc)
         }
         if types.count > 0 {
@@ -90,8 +81,6 @@ class MHomeViewController: MViewController,UIPageViewControllerDataSource,UIPage
                 
             })
         }
-       
-        
     }
     
     //后一个

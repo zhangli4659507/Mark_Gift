@@ -49,7 +49,6 @@ class EHomePageViewController: MViewController,UITableViewDelegate,UITableViewDa
             
         })
         self.tableView.tableViewRegiesterNibName("MChanelListCell")
-//        self.view.backgroundColor = UIColor.redColor()
         // Do any additional setup after loading the view.
     }
 

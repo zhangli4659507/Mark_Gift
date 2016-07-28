@@ -40,7 +40,6 @@ class MHomeSigmentView: UIView {
     private lazy var pushView: MTypePushView = {
     
         let pushView = MTypePushView()
-        
         return pushView
         
     }()
@@ -55,6 +54,7 @@ class MHomeSigmentView: UIView {
           make.edges.equalTo()(clearView).insets()(UIEdgeInsetsZero)
         })
         control.addTarget(self, action: #selector(MHomeSigmentView.actionTap), forControlEvents: .TouchUpInside)
+       
 //        control.addTarget(self, action: #selector(MHomeSigmentView.actionTap)), forControlEvents: UIControlEventTouchUpInside)
 //        let tap = UITapGestureRecognizer(target: self, action: #selector(MHomeSigmentView.actionTap))
 //        clearView.addGestureRecognizer(tap)
@@ -62,6 +62,8 @@ class MHomeSigmentView: UIView {
         return clearView
         
     }()
+    
+   
     
     init(frame: CGRect,baseView:UIView) {
         super.init(frame: frame)
@@ -263,3 +265,6 @@ class MHomeSigmentView: UIView {
     */
 
 }
+
+
+
