@@ -25,6 +25,7 @@ class MHomeViewController: MViewController,UIPageViewControllerDataSource,UIPage
         MHttpTool.getRequestData("v2/channels/preset?gender=2&generation=2", success: { (response) in
             
             let arrTypes:NSMutableArray? = MSegmentTypeModel.mj_objectArrayWithKeyValuesArray(response?.data!["channels"])
+            
             self.types = arrTypes
             self.topView?.reloadData(arrTypes!, fentchFunc: { (model) -> String in
                 return model.name!
