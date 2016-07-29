@@ -9,8 +9,7 @@
 import UIKit
 import ObjectMapper
 
-class MHomeViewController: MViewController,UIPageViewControllerDataSource,UIPageViewControllerDelegate {
-    
+class MHomeViewController: MViewController {
     
     var topView:MHomeSigmentView?
     var pageVc:UIPageViewController?
@@ -32,10 +31,31 @@ class MHomeViewController: MViewController,UIPageViewControllerDataSource,UIPage
             
         }
     }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
 
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}
+
+//MARK: privtaExtension
+private extension MHomeViewController {
+    
     func createUI(){
-      self.topView = MHomeSigmentView(frame: CGRectZero, baseView: view)
-      self.view.addSubview(self.topView!)
+        self.topView = MHomeSigmentView(frame: CGRectZero, baseView: view)
+        self.view.addSubview(self.topView!)
         self.topView?.actionIndexCourse = {(index,model) in
             
             let vc:EHomePageViewController = self.viewcontrollers[index]
@@ -46,10 +66,10 @@ class MHomeViewController: MViewController,UIPageViewControllerDataSource,UIPage
                 
             })
         }
-      self.topView?.mas_makeConstraints({ (make) in
-        make.leading.top().trailing().equalTo()(self.view).offset()(0.0)
-        make.height.offset()(55)
-      })
+        self.topView?.mas_makeConstraints({ (make) in
+            make.leading.top().trailing().equalTo()(self.view).offset()(0.0)
+            make.height.offset()(55)
+        })
         
         self.pageVc = UIPageViewController(transitionStyle: .Scroll, navigationOrientation: .Horizontal, options:  nil)
         self.addChildViewController(self.pageVc!)
@@ -57,13 +77,13 @@ class MHomeViewController: MViewController,UIPageViewControllerDataSource,UIPage
         self.pageVc?.delegate = self
         self.pageVc?.dataSource = self
         self.pageVc?.view.mas_makeConstraints({ (make) in
-        make.top.equalTo()(self.topView?.mas_bottom).offset()(0)
-        make.bottom.leading().trailing().equalTo()(self.view).offset()(0)
+            make.top.equalTo()(self.topView?.mas_bottom).offset()(0)
+            make.bottom.leading().trailing().equalTo()(self.view).offset()(0)
         })
     }
     
     func initViewcontrollers(types: Array<MSegmentTypeModel>) {
-    
+        
         for index in 0 ..< types.count  {
             let vc:EHomePageViewController = EHomePageViewController()
             vc.curIndex = index
@@ -78,7 +98,10 @@ class MHomeViewController: MViewController,UIPageViewControllerDataSource,UIPage
         }
     }
     
-    //后一个
+}
+
+//MARK:pageviewControllerDelegate
+extension MHomeViewController:UIPageViewControllerDataSource,UIPageViewControllerDelegate {
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
         
         let curVc:EHomePageViewController = viewController as!EHomePageViewController
@@ -106,20 +129,6 @@ class MHomeViewController: MViewController,UIPageViewControllerDataSource,UIPage
         }
         return viewcontrollers[index]
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+

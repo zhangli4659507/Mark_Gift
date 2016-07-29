@@ -8,7 +8,7 @@
 
 import UIKit
 import ObjectMapper
-class EHomePageViewController: MViewController,UITableViewDelegate,UITableViewDataSource {
+class EHomePageViewController: MViewController {
 
     
     var curIndex = 0 {
@@ -69,21 +69,6 @@ class EHomePageViewController: MViewController,UITableViewDelegate,UITableViewDa
         }
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (arrData?.count)!
-    }
-
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let cell:MChanelListCell = tableView.dequeueReusableCellWithIdentifier("MChanelListCell") as! MChanelListCell
-        cell.valueModel = arrData![indexPath.row] as? MGiftListModel
-        
-        return cell
-    }
     
 //    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
 //        return 400
@@ -106,3 +91,34 @@ class EHomePageViewController: MViewController,UITableViewDelegate,UITableViewDa
     */
 
 }
+
+//MARK:tableviewDelegate Extension
+extension EHomePageViewController:UITableViewDataSource {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return (arrData?.count)!
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell:MChanelListCell = tableView.dequeueReusableCellWithIdentifier("MChanelListCell") as! MChanelListCell
+        cell.valueModel = arrData![indexPath.row] as? MGiftListModel
+        
+        return cell
+    }
+
+    
+}
+
+extension EHomePageViewController:UITableViewDelegate {
+
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+    
+}
+
+

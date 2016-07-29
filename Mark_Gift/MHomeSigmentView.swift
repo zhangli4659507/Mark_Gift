@@ -71,46 +71,6 @@ class MHomeSigmentView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func caretaUI() {
-    
-        self.typeBtn = UIButton(type: .Custom)
-        self.addSubview(self.typeBtn!)
-        self.typeBtn?.adjustsImageWhenDisabled = false
-        self.typeBtn?.adjustsImageWhenHighlighted = false
-        typeBtn?.addTarget(self, action: #selector(MHomeSigmentView.actionBtnType(_:)), forControlEvents: .TouchUpInside)
-        self.typeBtn?.mas_makeConstraints({ (make) in
-            make.top.bottom().trailing().equalTo()(self).offset()(0)
-            make.width.offset()(55)
-            self.typeBtn?.setImage(UIImage(named: "giftcategorydetail_arrow_down_gray"), forState: .Normal)
-        })
-        
-        self.scorllView = UIScrollView(frame: self.bounds)
-        self.addSubview(self.scorllView!)
-        self.scorllView?.showsHorizontalScrollIndicator = false
-        self.scorllView?.mas_makeConstraints({ (make) in
-            make.top.leading().bottom().equalTo()(self).offset()(0)
-            make.trailing.equalTo()(self.typeBtn?.mas_leading).offset()(0)
-        })
-        
-        let lineView = UIView()
-        lineView.backgroundColor = UIColor().M_Line_color
-        self.addSubview(lineView)
-        lineView.mas_makeConstraints { (make) in
-            
-            make.leading.bottom().trailing().equalTo()(self).offset()(0.0)
-            make.height.offset()(0.5)
-        }
-        
-        self.addSubview(self.coverLabel)
-        self.coverLabel.hidden = true
-        self.coverLabel.mas_makeConstraints { (make) in
-            make.bottom.equalTo()(self).offset()(-0.5)
-            make.leading.top().equalTo()(self).offset()(0)
-            make.trailing.equalTo()(self.typeBtn?.mas_leading).offset()(0)
-        }
-        
-    }
-    
     func changeCurIndex(index: Int)  {
         for view in (self.scorllView?.subviews)! {
             if view.isKindOfClass(UIButton) && view.tag == index {
@@ -176,9 +136,65 @@ class MHomeSigmentView: UIView {
         self.clearView.layoutIfNeeded()
     }
     
-    @objc private func actionTap() {
+
     
-       self.actionBtnType(self.typeBtn!)
+    /*
+    // Only override drawRect: if you perform custom drawing.
+    // An empty implementation adversely affects performance during animation.
+    override func drawRect(rect: CGRect) {
+        // Drawing code
+    }
+    */
+
+}
+
+
+private extension MHomeSigmentView {
+
+    private func caretaUI() {
+        
+        self.typeBtn = UIButton(type: .Custom)
+        self.addSubview(self.typeBtn!)
+        self.typeBtn?.adjustsImageWhenDisabled = false
+        self.typeBtn?.adjustsImageWhenHighlighted = false
+        typeBtn?.addTarget(self, action: #selector(MHomeSigmentView.actionBtnType(_:)), forControlEvents: .TouchUpInside)
+        self.typeBtn?.mas_makeConstraints({ (make) in
+            make.top.bottom().trailing().equalTo()(self).offset()(0)
+            make.width.offset()(55)
+            self.typeBtn?.setImage(UIImage(named: "giftcategorydetail_arrow_down_gray"), forState: .Normal)
+        })
+        
+        self.scorllView = UIScrollView(frame: self.bounds)
+        self.addSubview(self.scorllView!)
+        self.scorllView?.showsHorizontalScrollIndicator = false
+        self.scorllView?.mas_makeConstraints({ (make) in
+            make.top.leading().bottom().equalTo()(self).offset()(0)
+            make.trailing.equalTo()(self.typeBtn?.mas_leading).offset()(0)
+        })
+        
+        let lineView = UIView()
+        lineView.backgroundColor = UIColor().M_Line_color
+        self.addSubview(lineView)
+        lineView.mas_makeConstraints { (make) in
+            
+            make.leading.bottom().trailing().equalTo()(self).offset()(0.0)
+            make.height.offset()(0.5)
+        }
+        
+        self.addSubview(self.coverLabel)
+        self.coverLabel.hidden = true
+        self.coverLabel.mas_makeConstraints { (make) in
+            make.bottom.equalTo()(self).offset()(-0.5)
+            make.leading.top().equalTo()(self).offset()(0)
+            make.trailing.equalTo()(self.typeBtn?.mas_leading).offset()(0)
+        }
+        
+    }
+    
+//    MARK:ActionFUNC
+    @objc private func actionTap() {
+        
+        self.actionBtnType(self.typeBtn!)
     }
     
     @objc private func actionBtnType(sender: UIButton) {
@@ -198,9 +214,9 @@ class MHomeSigmentView: UIView {
                     self.clearView.hidden = self.pushViewState
             })
         } else {
-         sender.backgroundColor = UIColor().M_Hex_LightGray
-          self.pushBaseView.hidden = self.pushViewState
-          self.clearView.hidden = self.pushViewState
+            sender.backgroundColor = UIColor().M_Hex_LightGray
+            self.pushBaseView.hidden = self.pushViewState
+            self.clearView.hidden = self.pushViewState
             UIView.animateWithDuration(0.25, delay: 0, options: UIViewAnimationOptions.LayoutSubviews, animations: {
                 self.pushView.mas_updateConstraints({ (make) in
                     make.height.offset()(height)
@@ -234,7 +250,7 @@ class MHomeSigmentView: UIView {
         }
         sender.selected = true
         UIView.animateWithDuration(0.25) {
-        self.scorllView?.setContentOffset(point!, animated: false)
+            self.scorllView?.setContentOffset(point!, animated: false)
         }
         UIView.animateWithDuration(0.45) {
             
@@ -246,18 +262,10 @@ class MHomeSigmentView: UIView {
         if !pushViewState {
             self.actionBtnType(self.typeBtn!)
         }
-       
+        
         actionIndexCourse!(sender.tag,self.typesModel![sender.tag] )
     }
-    
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
-    }
-    */
-
+  
 }
 
 
