@@ -1,12 +1,12 @@
 PODS:
   - JSON (4.0.2)
   - Masonry (0.6.3)
-  - MJExtension (3.0.7)
   - NetworkActivityIndicator (0.1.4)
   - Networking (0.12.3):
     - JSON (~> 4.0.2)
     - NetworkActivityIndicator (~> 0.1.4)
     - TestCheck (~> 0.3.0)
+  - ObjectMapper (1.0.1)
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
@@ -15,21 +15,21 @@ PODS:
 
 DEPENDENCIES:
   - Masonry
-  - MJExtension
   - Networking
+  - ObjectMapper
   - SDWebImage
   - UIColor_Hex_Swift
 
 SPEC CHECKSUMS:
   JSON: d08f22c3e523be050d5d5f40bca43ec02d95b2cc
   Masonry: ff105a956abcd19a618b2028b121cb638d7a8e2f
-  MJExtension: 290cc966f0f849b12b6391a38e296e0004ae8e5e
   NetworkActivityIndicator: 406f51c6c833138245fffd2fabeb0e509c9ba05c
   Networking: 671fc8bc517212177d0f1cecb6b8c54ed1a2158b
+  ObjectMapper: 98524bac0dca46c6b3d5ee02cd410fc700ec6ce2
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   TestCheck: 42c1343664986c0cbfaa20a62622d6f6fb70a407
   UIColor_Hex_Swift: c4147b9bdc5b799ec2dfe384672445fd08dca07e
 
-PODFILE CHECKSUM: 0b0903cbe9960e18021f315516c9daae77de9bf1
+PODFILE CHECKSUM: 3f085feafd8615cd790734d0b25ece05e841a851
 
 COCOAPODS: 1.0.1

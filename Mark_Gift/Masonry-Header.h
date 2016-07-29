@@ -8,4 +8,3 @@
 
 #import <Masonry/Masonry.h>
 #import <SDWebImage/UIImageView+WebCache.h>
-#import <MJExtension/MJExtension.h>

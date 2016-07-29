@@ -13,7 +13,7 @@ class MTypePushView: UIView,UICollectionViewDataSource,UICollectionViewDelegate,
     
     var collectionView:UICollectionView? = nil
     var selectIndexCourse:(Int->Void)?
-    var typesArr:NSMutableArray? {
+    var typesArr:Array<MSegmentTypeModel>? {
         didSet {
         self.collectionView?.reloadData()
         }
@@ -70,8 +70,8 @@ class MTypePushView: UIView,UICollectionViewDataSource,UICollectionViewDelegate,
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MTypesCollectionViewCell", forIndexPath: indexPath) as! MTypesCollectionViewCell
-        let model = typesArr?.objectAtIndex(indexPath.row) as! MSegmentTypeModel
-        cell.btnType.setTitle(model.name, forState: .Normal)
+        let model = typesArr?[indexPath.row]
+        cell.btnType.setTitle(model!.name, forState: .Normal)
         cell.btnType.selected = false
         cell.selectecLineView.hidden = true
         if indexPath.row == curSelectIndex {

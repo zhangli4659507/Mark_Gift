@@ -38,13 +38,14 @@ class MChanelListCell: UITableViewCell {
         self.giftType.text = valueModel?.column?.category
         self.title.text = valueModel?.column?.title
         self.giftTitle.text = valueModel?.title
-        self.like_count.text = valueModel?.likes_count
+        self.like_count.text = String((valueModel?.likes_count)!)
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .None
         self.authorHead.roundView(self.authorHead.width/2)
+        self.giftType.roundView(4)
         // Initialization code
     }
 

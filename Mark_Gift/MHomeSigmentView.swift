@@ -14,7 +14,7 @@ class MHomeSigmentView: UIView {
     private var baseView:UIView?
     private var BottomLineView:UIView?
     private var scorllView:UIScrollView?
-    private var typesModel:NSMutableArray?
+    private var typesModel:Array<MSegmentTypeModel>?
     private var typeBtn:UIButton?
     private var pushViewState = true
     private var curSelectIndex:Int = 0
@@ -54,13 +54,7 @@ class MHomeSigmentView: UIView {
           make.edges.equalTo()(clearView).insets()(UIEdgeInsetsZero)
         })
         control.addTarget(self, action: #selector(MHomeSigmentView.actionTap), forControlEvents: .TouchUpInside)
-       
-//        control.addTarget(self, action: #selector(MHomeSigmentView.actionTap)), forControlEvents: UIControlEventTouchUpInside)
-//        let tap = UITapGestureRecognizer(target: self, action: #selector(MHomeSigmentView.actionTap))
-//        clearView.addGestureRecognizer(tap)
-        
         return clearView
-        
     }()
     
    
@@ -125,13 +119,13 @@ class MHomeSigmentView: UIView {
         }
     }
     
-    func reloadData(dataArr:NSMutableArray,fentchFunc:(model:MSegmentTypeModel)->String)  {
+    func reloadData(dataArr:Array<MSegmentTypeModel>,fentchFunc:(model:MSegmentTypeModel)->String)  {
         var cur_X:CGFloat = 0
         self.typesModel = dataArr
         self.scorllView?.removeAllSubViews()
         self.pushView.typesArr = dataArr
         for index in 0 ..< dataArr.count {
-            let model:MSegmentTypeModel = dataArr[index] as! MSegmentTypeModel
+            let model:MSegmentTypeModel = dataArr[index]
             let name = fentchFunc(model: model)
             let btn:UIButton = UIButton(type: .Custom)
             btn.setTitleColor(UIColor().M_Hex_333, forState: .Normal)
@@ -253,7 +247,7 @@ class MHomeSigmentView: UIView {
             self.actionBtnType(self.typeBtn!)
         }
        
-        actionIndexCourse!(sender.tag,self.typesModel![sender.tag] as! MSegmentTypeModel)
+        actionIndexCourse!(sender.tag,self.typesModel![sender.tag] )
     }
     
     /*

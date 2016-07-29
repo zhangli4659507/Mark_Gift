@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ObjectMapper
 
 class MHomeViewController: MViewController,UIPageViewControllerDataSource,UIPageViewControllerDelegate {
     
@@ -14,37 +15,30 @@ class MHomeViewController: MViewController,UIPageViewControllerDataSource,UIPage
     var topView:MHomeSigmentView?
     var pageVc:UIPageViewController?
     var viewcontrollers:[EHomePageViewController] = Array()
-    var types:NSMutableArray?
-    
-    
+    var types:Array<MSegmentTypeModel>?
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = nil
        
         createUI()
-        MHttpTool.getRequestData("v2/channels/preset?gender=2&generation=2", success: { (response) in
+       MHttpTool.getRequestWithParameters("v2/channels/preset", parameters: ["gender":2,"generation":2], success: { (response) in
+        let arrTypes = Mapper<MSegmentTypeModel>().mapArray(response?.data!["channels"])
+        self.types = arrTypes
+        self.topView?.reloadData(arrTypes!, fentchFunc: { (model) -> String in
+            return model.name!
+        })
+        self.initViewcontrollers(arrTypes!)
+        }) { (error) in
             
-            let arrTypes:NSMutableArray? = MSegmentTypeModel.mj_objectArrayWithKeyValuesArray(response?.data!["channels"])
-            
-            self.types = arrTypes
-            self.topView?.reloadData(arrTypes!, fentchFunc: { (model) -> String in
-                return model.name!
-            })
-            self.initViewcontrollers(arrTypes!)
-            }) { (error) in
-          print("error")
         }
-        
-        // Do any additional setup after loading the view.
     }
 
-    
     func createUI(){
       self.topView = MHomeSigmentView(frame: CGRectZero, baseView: view)
       self.view.addSubview(self.topView!)
         self.topView?.actionIndexCourse = {(index,model) in
             
-            let vc:EHomePageViewController = (self.viewcontrollers[index] as? EHomePageViewController)!
+            let vc:EHomePageViewController = self.viewcontrollers[index]
             if vc.model == nil {
                 vc.model = model
             }
@@ -68,7 +62,7 @@ class MHomeViewController: MViewController,UIPageViewControllerDataSource,UIPage
         })
     }
     
-    func initViewcontrollers(types: NSMutableArray) {
+    func initViewcontrollers(types: Array<MSegmentTypeModel>) {
     
         for index in 0 ..< types.count  {
             let vc:EHomePageViewController = EHomePageViewController()
@@ -77,7 +71,7 @@ class MHomeViewController: MViewController,UIPageViewControllerDataSource,UIPage
         }
         if types.count > 0 {
             let vc:EHomePageViewController = viewcontrollers[0]
-            vc.model = types.objectAtIndex(0) as? MSegmentTypeModel
+            vc.model = types[0]
             self.pageVc?.setViewControllers([vc], direction: .Forward, animated: true, completion: { (state) in
                 
             })
@@ -90,7 +84,7 @@ class MHomeViewController: MViewController,UIPageViewControllerDataSource,UIPage
         let curVc:EHomePageViewController = viewController as!EHomePageViewController
         self.topView?.changeCurIndex(curVc.curIndex)
         if curVc.model == nil {
-            curVc.model = types?.objectAtIndex(curVc.curIndex) as? MSegmentTypeModel
+            curVc.model = types![curVc.curIndex]
         }
         
         let index:Int = curVc.curIndex + 1
@@ -104,7 +98,7 @@ class MHomeViewController: MViewController,UIPageViewControllerDataSource,UIPage
         let curVc:EHomePageViewController = viewController as!EHomePageViewController
         self.topView?.changeCurIndex(curVc.curIndex)
         if curVc.model == nil {
-            curVc.model = types?.objectAtIndex(curVc.curIndex) as? MSegmentTypeModel
+            curVc.model = types![curVc.curIndex]
         }
         let index:Int = curVc.curIndex - 1
         if index < 0 || index == NSNotFound {

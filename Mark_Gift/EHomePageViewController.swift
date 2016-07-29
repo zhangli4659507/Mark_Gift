@@ -7,9 +7,7 @@
 //
 
 import UIKit
-
-
-
+import ObjectMapper
 class EHomePageViewController: MViewController,UITableViewDelegate,UITableViewDataSource {
 
     
@@ -60,10 +58,10 @@ class EHomePageViewController: MViewController,UITableViewDelegate,UITableViewDa
             arrData?.removeAllObjects()
         }
 //        http://api.liwushuo.com/v2/channels/104/items_v2?ad=2&gender=2&generation=2&limit=10&offset=0
-        let strUrl: String = "v2/channels/\(Int((model?.id)! as! NSNumber))/items_v2?gender=2&generation=2&limit=20&offset=\(offset)"
+        let strUrl: String = "v2/channels/\((model?.id)!)/items_v2?gender=2&generation=2&limit=20&offset=\(offset)"
          MHttpTool.getRequestData(strUrl, success: { (response) in
             
-            let basicModel:MListDataModel = MListDataModel.mj_objectWithKeyValues(response?.data)
+            let basicModel:MListDataModel = Mapper<MListDataModel>().map(response?.data)!
             self.arrData?.addObjectsFromArray(basicModel.items!)
             self.tableView.reloadData()
             }) { (error) in

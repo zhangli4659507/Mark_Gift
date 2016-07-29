@@ -7,12 +7,22 @@
 //
 
 import UIKit
+import ObjectMapper
 
-class MSegmentTypeModel: NSObject {
+class MSegmentTypeModel: Mappable {
 
-    var editable:AnyObject?
-    var id:AnyObject?
+    var editable:Bool?
+    var id:Int?
     var name:String?
+    
+    required init?(_ map: Map) {
+        
+    }
+     func mapping(map: Map) {
+       editable <- map["editable"]
+        id <- map["id"]
+        name <- map["name"]
+    }
     
     
 }
