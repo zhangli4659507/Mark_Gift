@@ -19,7 +19,8 @@ class MHomeViewController: MViewController {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = nil
        
-        createUI()
+       createUI()
+        
        MHttpTool.getRequestWithParameters("v2/channels/preset", parameters: ["gender":2,"generation":2], success: { (response) in
         let arrTypes = Mapper<MSegmentTypeModel>().mapArray(response?.data!["channels"])
         self.types = arrTypes

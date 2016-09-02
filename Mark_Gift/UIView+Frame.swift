@@ -82,6 +82,15 @@ extension UIView {
         self.layer.masksToBounds = true
         self.layer.cornerRadius = round
     }
+    
+    public  func roundViewAndLine(round: CGFloat,borderWidth:CGFloat,lineColor:UIColor) {
+        
+        self.layer.masksToBounds = true
+        self.layer.cornerRadius = round
+        self.layer.borderColor = lineColor.CGColor
+        self.layer.borderWidth = borderWidth
+    }
+    
 }
 
 extension UITableView {

@@ -29,6 +29,9 @@
 		4DB317E21D45AD0800BEEADF /* MTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB317E11D45AD0800BEEADF /* MTabBarController.swift */; };
 		4DB317E41D45BB2100BEEADF /* MNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB317E31D45BB2100BEEADF /* MNavController.swift */; };
 		4DB317E61D45BB3600BEEADF /* MViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB317E51D45BB3600BEEADF /* MViewController.swift */; };
+		4DE04F311D781ADB00525B77 /* MHotCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE04F2F1D781ADB00525B77 /* MHotCollectionViewCell.swift */; };
+		4DE04F321D781ADB00525B77 /* MHotCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE04F301D781ADB00525B77 /* MHotCollectionViewCell.xib */; };
+		4DE04F341D7821AA00525B77 /* MHotListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE04F331D7821AA00525B77 /* MHotListModel.swift */; };
 		4DE138521D483B5400524DBE /* MTypePushView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE138511D483B5400524DBE /* MTypePushView.swift */; };
 		4DE138571D483F2200524DBE /* MTypesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE138551D483F2200524DBE /* MTypesCollectionViewCell.swift */; };
 		4DE138581D483F2200524DBE /* MTypesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE138561D483F2200524DBE /* MTypesCollectionViewCell.xib */; };
@@ -62,6 +65,9 @@
 		4DB317E11D45AD0800BEEADF /* MTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTabBarController.swift; sourceTree = "<group>"; };
 		4DB317E31D45BB2100BEEADF /* MNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MNavController.swift; sourceTree = "<group>"; };
 		4DB317E51D45BB3600BEEADF /* MViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MViewController.swift; sourceTree = "<group>"; };
+		4DE04F2F1D781ADB00525B77 /* MHotCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHotCollectionViewCell.swift; sourceTree = "<group>"; };
+		4DE04F301D781ADB00525B77 /* MHotCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MHotCollectionViewCell.xib; sourceTree = "<group>"; };
+		4DE04F331D7821AA00525B77 /* MHotListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHotListModel.swift; sourceTree = "<group>"; };
 		4DE138511D483B5400524DBE /* MTypePushView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTypePushView.swift; sourceTree = "<group>"; };
 		4DE138551D483F2200524DBE /* MTypesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTypesCollectionViewCell.swift; sourceTree = "<group>"; };
 		4DE138561D483F2200524DBE /* MTypesCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTypesCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -188,6 +194,7 @@
 		4D56777A1D4705A700395641 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4DE04F331D7821AA00525B77 /* MHotListModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -195,6 +202,8 @@
 		4D56777B1D4705AC00395641 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4DE04F2F1D781ADB00525B77 /* MHotCollectionViewCell.swift */,
+				4DE04F301D781ADB00525B77 /* MHotCollectionViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -344,6 +353,7 @@
 				4DE138581D483F2200524DBE /* MTypesCollectionViewCell.xib in Resources */,
 				4D2B57E71D420A23008E6B19 /* LaunchImage.xcassets in Resources */,
 				4D2B57DC1D4204CC008E6B19 /* Assets.xcassets in Resources */,
+				4DE04F321D781ADB00525B77 /* MHotCollectionViewCell.xib in Resources */,
 				4D2B57DA1D4204CC008E6B19 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,6 +423,7 @@
 				4D5677921D475F2800395641 /* UIView+Frame.swift in Sources */,
 				4D56778E1D47412700395641 /* UIColor+MColor.swift in Sources */,
 				4D56778B1D47343600395641 /* MHttpTool.swift in Sources */,
+				4DE04F311D781ADB00525B77 /* MHotCollectionViewCell.swift in Sources */,
 				4D5677891D47159A00395641 /* MSegmentTypeModel.swift in Sources */,
 				4DB317E61D45BB3600BEEADF /* MViewController.swift in Sources */,
 				4D5677851D470ACB00395641 /* MHomeSigmentView.swift in Sources */,
@@ -421,6 +432,7 @@
 				4D2B57D51D4204CC008E6B19 /* AppDelegate.swift in Sources */,
 				4D5677811D47060A00395641 /* MCategoryViewController.swift in Sources */,
 				4DE138521D483B5400524DBE /* MTypePushView.swift in Sources */,
+				4DE04F341D7821AA00525B77 /* MHotListModel.swift in Sources */,
 				4D74A4831D4993880092F11D /* MGiftListModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -465,6 +477,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Wen Luo (6P2MSBB3R6)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -487,6 +500,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "5eb87a29-826a-4da2-809c-3ed7299dd292";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -510,6 +524,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Wen Luo (6P2MSBB3R6)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -525,6 +540,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "5eb87a29-826a-4da2-809c-3ed7299dd292";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -536,11 +552,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Wen Luo (6P2MSBB3R6)";
 				INFOPLIST_FILE = Mark_Gift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = come.233.gift;
+				PRODUCT_BUNDLE_IDENTIFIER = com.233.test.gift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "5eb87a29-826a-4da2-809c-3ed7299dd292";
 				SWIFT_OBJC_BRIDGING_HEADER = "Mark_Gift/Masonry-Header.h";
 			};
 			name = Debug;
@@ -551,11 +569,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Wen Luo (6P2MSBB3R6)";
 				INFOPLIST_FILE = Mark_Gift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = come.233.gift;
+				PRODUCT_BUNDLE_IDENTIFIER = com.233.test.gift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "5eb87a29-826a-4da2-809c-3ed7299dd292";
 				SWIFT_OBJC_BRIDGING_HEADER = "Mark_Gift/Masonry-Header.h";
 			};
 			name = Release;

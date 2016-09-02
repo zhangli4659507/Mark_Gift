@@ -7,12 +7,20 @@
 //
 
 import UIKit
-
+import ObjectMapper
 class MHotViewController: MViewController {
 
+    var flowLayOut: UICollectionViewFlowLayout?
+    
+    var collectionView: UICollectionView?
+    var dataList:[MHotList]?
+//    MHttpTool
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = nil
+        
+        self.initCollectionView()
+        self.requestData()
         // Do any additional setup after loading the view.
     }
 
@@ -21,6 +29,8 @@ class MHotViewController: MViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+
 
     /*
     // MARK: - Navigation
@@ -33,3 +43,78 @@ class MHotViewController: MViewController {
     */
 
 }
+
+private extension MHotViewController {
+    func initCollectionView()  {
+        
+        self.flowLayOut = UICollectionViewFlowLayout()
+        let itemWid = (KScreenWidth-24)/2.0
+        let h = itemWid*798/580
+        self.flowLayOut?.itemSize = CGSize(width: itemWid, height: h)
+        self.flowLayOut?.minimumLineSpacing = 8
+        self.flowLayOut?.minimumInteritemSpacing = 8
+        self.flowLayOut?.sectionInset  = UIEdgeInsetsMake(10, 8, 10, 8)
+        
+        self.collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: self.flowLayOut!)
+        self.collectionView?.backgroundColor = UIColor(rgba: "#f5f5f5")
+        self.collectionView?.delegate = self
+        self.collectionView?.dataSource = self
+        self.view.addSubview(self.collectionView!)
+        
+        self.collectionView?.mas_makeConstraints({ (make) in
+            make.edges.equalTo()(self.view).insets()(UIEdgeInsetsZero)
+        })
+        
+        
+        self.collectionView?.registerNib(UINib(nibName: "MHotCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MHotCollectionViewCell")
+        
+    }
+    
+    func requestData () {
+    
+        MHttpTool.getRequestWithParameters("v2/items", parameters: ["gender":1,"limit":20,"offset":0,"generation":0], success: { (response) in
+            self.dataList = Mapper<MHotList>().mapArray(response?.data!["items"])
+            self.collectionView?.reloadData()
+            }) { (error) in
+                
+        }
+        
+    }
+    
+}
+
+
+extension MHotViewController:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+
+        
+        if let value = self.dataList {
+        
+            return value.count
+        } else {
+        
+            return 0
+        }
+        
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
+        let cell:MHotCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("MHotCollectionViewCell", forIndexPath: indexPath) as! MHotCollectionViewCell
+        
+        let model:MHotList = self.dataList![indexPath.item] 
+        cell.configCellWithModel(model.data!)
+        return cell
+    }
+    
+//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+//    
+//        let itemWid = (KScreenWidth-30)/2.0
+//        let h = itemWid*798/580
+//        
+//        return CGSizeMake(itemWid, h)
+//    }
+    
+}
+
