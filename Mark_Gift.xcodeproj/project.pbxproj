@@ -29,6 +29,10 @@
 		4DB317E21D45AD0800BEEADF /* MTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB317E11D45AD0800BEEADF /* MTabBarController.swift */; };
 		4DB317E41D45BB2100BEEADF /* MNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB317E31D45BB2100BEEADF /* MNavController.swift */; };
 		4DB317E61D45BB3600BEEADF /* MViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB317E51D45BB3600BEEADF /* MViewController.swift */; };
+		4DC2700D1D795C8900A11D3D /* MSingelGoodsVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC2700C1D795C8900A11D3D /* MSingelGoodsVc.swift */; };
+		4DC2700F1D795CB600A11D3D /* MMoreGoodsVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC2700E1D795CB600A11D3D /* MMoreGoodsVc.swift */; };
+		4DC270111D795E1C00A11D3D /* MCategorySegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC270101D795E1C00A11D3D /* MCategorySegmentView.swift */; };
+		4DC270131D795E2B00A11D3D /* MCategorySegmentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC270121D795E2B00A11D3D /* MCategorySegmentView.xib */; };
 		4DE04F311D781ADB00525B77 /* MHotCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE04F2F1D781ADB00525B77 /* MHotCollectionViewCell.swift */; };
 		4DE04F321D781ADB00525B77 /* MHotCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE04F301D781ADB00525B77 /* MHotCollectionViewCell.xib */; };
 		4DE04F341D7821AA00525B77 /* MHotListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE04F331D7821AA00525B77 /* MHotListModel.swift */; };
@@ -65,6 +69,10 @@
 		4DB317E11D45AD0800BEEADF /* MTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTabBarController.swift; sourceTree = "<group>"; };
 		4DB317E31D45BB2100BEEADF /* MNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MNavController.swift; sourceTree = "<group>"; };
 		4DB317E51D45BB3600BEEADF /* MViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MViewController.swift; sourceTree = "<group>"; };
+		4DC2700C1D795C8900A11D3D /* MSingelGoodsVc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSingelGoodsVc.swift; sourceTree = "<group>"; };
+		4DC2700E1D795CB600A11D3D /* MMoreGoodsVc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMoreGoodsVc.swift; sourceTree = "<group>"; };
+		4DC270101D795E1C00A11D3D /* MCategorySegmentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCategorySegmentView.swift; sourceTree = "<group>"; };
+		4DC270121D795E2B00A11D3D /* MCategorySegmentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCategorySegmentView.xib; sourceTree = "<group>"; };
 		4DE04F2F1D781ADB00525B77 /* MHotCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHotCollectionViewCell.swift; sourceTree = "<group>"; };
 		4DE04F301D781ADB00525B77 /* MHotCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MHotCollectionViewCell.xib; sourceTree = "<group>"; };
 		4DE04F331D7821AA00525B77 /* MHotListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHotListModel.swift; sourceTree = "<group>"; };
@@ -222,6 +230,8 @@
 			isa = PBXGroup;
 			children = (
 				4D5677801D47060A00395641 /* MCategoryViewController.swift */,
+				4DC2700C1D795C8900A11D3D /* MSingelGoodsVc.swift */,
+				4DC2700E1D795CB600A11D3D /* MMoreGoodsVc.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -236,6 +246,8 @@
 		4D56777F1D4705D500395641 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4DC270101D795E1C00A11D3D /* MCategorySegmentView.swift */,
+				4DC270121D795E2B00A11D3D /* MCategorySegmentView.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -350,6 +362,7 @@
 			files = (
 				4D74A4811D498E7F0092F11D /* MChanelListCell.xib in Resources */,
 				4D2B57DF1D4204CC008E6B19 /* LaunchScreen.storyboard in Resources */,
+				4DC270131D795E2B00A11D3D /* MCategorySegmentView.xib in Resources */,
 				4DE138581D483F2200524DBE /* MTypesCollectionViewCell.xib in Resources */,
 				4D2B57E71D420A23008E6B19 /* LaunchImage.xcassets in Resources */,
 				4D2B57DC1D4204CC008E6B19 /* Assets.xcassets in Resources */,
@@ -426,8 +439,11 @@
 				4DE04F311D781ADB00525B77 /* MHotCollectionViewCell.swift in Sources */,
 				4D5677891D47159A00395641 /* MSegmentTypeModel.swift in Sources */,
 				4DB317E61D45BB3600BEEADF /* MViewController.swift in Sources */,
+				4DC2700F1D795CB600A11D3D /* MMoreGoodsVc.swift in Sources */,
+				4DC270111D795E1C00A11D3D /* MCategorySegmentView.swift in Sources */,
 				4D5677851D470ACB00395641 /* MHomeSigmentView.swift in Sources */,
 				4D5677711D47053C00395641 /* MHomeViewController.swift in Sources */,
+				4DC2700D1D795C8900A11D3D /* MSingelGoodsVc.swift in Sources */,
 				4DB317E21D45AD0800BEEADF /* MTabBarController.swift in Sources */,
 				4D2B57D51D4204CC008E6B19 /* AppDelegate.swift in Sources */,
 				4D5677811D47060A00395641 /* MCategoryViewController.swift in Sources */,

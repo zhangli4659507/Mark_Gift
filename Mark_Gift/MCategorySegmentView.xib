@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MCategorySegmentView" customModule="Mark_Gift" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="108"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="攻略" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LMN-DY-uEu">
+                    <rect key="frame" x="260" y="84" width="40" height="14"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="5lW-9g-orF"/>
+                        <constraint firstAttribute="height" constant="14" id="hqF-Zo-Cl1"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yWY-wO-lv0">
+                    <rect key="frame" x="260" y="103" width="40" height="2"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="KTl-nC-X15"/>
+                        <constraint firstAttribute="height" constant="2" id="bsc-Vn-Aas"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="单品" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3rn-Ff-gbw">
+                    <rect key="frame" x="300" y="84" width="40" height="14"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="14" id="1P6-gi-TFd"/>
+                        <constraint firstAttribute="width" constant="40" id="7JR-oM-tg7"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="0.1764705882352941" blue="0.27843137254901962" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="yWY-wO-lv0" secondAttribute="bottom" constant="3" id="6AZ-b0-sap"/>
+                <constraint firstItem="3rn-Ff-gbw" firstAttribute="centerY" secondItem="LMN-DY-uEu" secondAttribute="centerY" id="Jlb-nb-z5k"/>
+                <constraint firstItem="yWY-wO-lv0" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="-20" id="KE2-W6-YkM"/>
+                <constraint firstItem="LMN-DY-uEu" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="-20" id="LUd-Pn-ZAk"/>
+                <constraint firstItem="3rn-Ff-gbw" firstAttribute="leading" secondItem="LMN-DY-uEu" secondAttribute="trailing" id="imm-35-rpk"/>
+                <constraint firstItem="yWY-wO-lv0" firstAttribute="top" secondItem="LMN-DY-uEu" secondAttribute="bottom" constant="5" id="pDE-v5-kC3"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="centerContans" destination="KE2-W6-YkM" id="Arh-oe-O95"/>
+                <outlet property="lblLeft" destination="LMN-DY-uEu" id="eLq-09-EaH"/>
+                <outlet property="lblRight" destination="3rn-Ff-gbw" id="RKt-wO-YMq"/>
+            </connections>
+            <point key="canvasLocation" x="321" y="316"/>
+        </view>
+    </objects>
+</document>
