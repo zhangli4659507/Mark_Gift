@@ -26,6 +26,13 @@
 		4D74A4801D498E7F0092F11D /* MChanelListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D74A47E1D498E7F0092F11D /* MChanelListCell.swift */; };
 		4D74A4811D498E7F0092F11D /* MChanelListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D74A47F1D498E7F0092F11D /* MChanelListCell.xib */; };
 		4D74A4831D4993880092F11D /* MGiftListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D74A4821D4993880092F11D /* MGiftListModel.swift */; };
+		4D7B65F01D7D474F00D1BC80 /* MSingleGoodsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B65EE1D7D474F00D1BC80 /* MSingleGoodsCell.swift */; };
+		4D7B65F11D7D474F00D1BC80 /* MSingleGoodsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D7B65EF1D7D474F00D1BC80 /* MSingleGoodsCell.xib */; };
+		4D7B65F41D7D4A1E00D1BC80 /* MSingleTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B65F21D7D4A1E00D1BC80 /* MSingleTypeCell.swift */; };
+		4D7B65F51D7D4A1E00D1BC80 /* MSingleTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D7B65F31D7D4A1E00D1BC80 /* MSingleTypeCell.xib */; };
+		4D7B65F81D7D50E800D1BC80 /* MSingleTypeTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B65F61D7D50E800D1BC80 /* MSingleTypeTitleView.swift */; };
+		4D7B65F91D7D50E800D1BC80 /* MSingleTypeTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D7B65F71D7D50E800D1BC80 /* MSingleTypeTitleView.xib */; };
+		4D7B65FB1D7D5B5800D1BC80 /* MCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B65FA1D7D5B5800D1BC80 /* MCategoryModel.swift */; };
 		4DB317E21D45AD0800BEEADF /* MTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB317E11D45AD0800BEEADF /* MTabBarController.swift */; };
 		4DB317E41D45BB2100BEEADF /* MNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB317E31D45BB2100BEEADF /* MNavController.swift */; };
 		4DB317E61D45BB3600BEEADF /* MViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB317E51D45BB3600BEEADF /* MViewController.swift */; };
@@ -66,6 +73,13 @@
 		4D74A47E1D498E7F0092F11D /* MChanelListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MChanelListCell.swift; sourceTree = "<group>"; };
 		4D74A47F1D498E7F0092F11D /* MChanelListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MChanelListCell.xib; sourceTree = "<group>"; };
 		4D74A4821D4993880092F11D /* MGiftListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGiftListModel.swift; sourceTree = "<group>"; };
+		4D7B65EE1D7D474F00D1BC80 /* MSingleGoodsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSingleGoodsCell.swift; sourceTree = "<group>"; };
+		4D7B65EF1D7D474F00D1BC80 /* MSingleGoodsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MSingleGoodsCell.xib; sourceTree = "<group>"; };
+		4D7B65F21D7D4A1E00D1BC80 /* MSingleTypeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSingleTypeCell.swift; sourceTree = "<group>"; };
+		4D7B65F31D7D4A1E00D1BC80 /* MSingleTypeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MSingleTypeCell.xib; sourceTree = "<group>"; };
+		4D7B65F61D7D50E800D1BC80 /* MSingleTypeTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSingleTypeTitleView.swift; sourceTree = "<group>"; };
+		4D7B65F71D7D50E800D1BC80 /* MSingleTypeTitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MSingleTypeTitleView.xib; sourceTree = "<group>"; };
+		4D7B65FA1D7D5B5800D1BC80 /* MCategoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCategoryModel.swift; sourceTree = "<group>"; };
 		4DB317E11D45AD0800BEEADF /* MTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTabBarController.swift; sourceTree = "<group>"; };
 		4DB317E31D45BB2100BEEADF /* MNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MNavController.swift; sourceTree = "<group>"; };
 		4DB317E51D45BB3600BEEADF /* MViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MViewController.swift; sourceTree = "<group>"; };
@@ -239,6 +253,7 @@
 		4D56777E1D4705D000395641 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4D7B65FA1D7D5B5800D1BC80 /* MCategoryModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -248,6 +263,12 @@
 			children = (
 				4DC270101D795E1C00A11D3D /* MCategorySegmentView.swift */,
 				4DC270121D795E2B00A11D3D /* MCategorySegmentView.xib */,
+				4D7B65EE1D7D474F00D1BC80 /* MSingleGoodsCell.swift */,
+				4D7B65EF1D7D474F00D1BC80 /* MSingleGoodsCell.xib */,
+				4D7B65F61D7D50E800D1BC80 /* MSingleTypeTitleView.swift */,
+				4D7B65F71D7D50E800D1BC80 /* MSingleTypeTitleView.xib */,
+				4D7B65F21D7D4A1E00D1BC80 /* MSingleTypeCell.swift */,
+				4D7B65F31D7D4A1E00D1BC80 /* MSingleTypeCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -360,11 +381,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D7B65F11D7D474F00D1BC80 /* MSingleGoodsCell.xib in Resources */,
 				4D74A4811D498E7F0092F11D /* MChanelListCell.xib in Resources */,
 				4D2B57DF1D4204CC008E6B19 /* LaunchScreen.storyboard in Resources */,
 				4DC270131D795E2B00A11D3D /* MCategorySegmentView.xib in Resources */,
 				4DE138581D483F2200524DBE /* MTypesCollectionViewCell.xib in Resources */,
+				4D7B65F51D7D4A1E00D1BC80 /* MSingleTypeCell.xib in Resources */,
 				4D2B57E71D420A23008E6B19 /* LaunchImage.xcassets in Resources */,
+				4D7B65F91D7D50E800D1BC80 /* MSingleTypeTitleView.xib in Resources */,
 				4D2B57DC1D4204CC008E6B19 /* Assets.xcassets in Resources */,
 				4DE04F321D781ADB00525B77 /* MHotCollectionViewCell.xib in Resources */,
 				4D2B57DA1D4204CC008E6B19 /* Main.storyboard in Resources */,
@@ -434,10 +458,13 @@
 				4DB317E41D45BB2100BEEADF /* MNavController.swift in Sources */,
 				4D5677831D47061700395641 /* MHotViewController.swift in Sources */,
 				4D5677921D475F2800395641 /* UIView+Frame.swift in Sources */,
+				4D7B65F81D7D50E800D1BC80 /* MSingleTypeTitleView.swift in Sources */,
 				4D56778E1D47412700395641 /* UIColor+MColor.swift in Sources */,
 				4D56778B1D47343600395641 /* MHttpTool.swift in Sources */,
 				4DE04F311D781ADB00525B77 /* MHotCollectionViewCell.swift in Sources */,
 				4D5677891D47159A00395641 /* MSegmentTypeModel.swift in Sources */,
+				4D7B65F01D7D474F00D1BC80 /* MSingleGoodsCell.swift in Sources */,
+				4D7B65F41D7D4A1E00D1BC80 /* MSingleTypeCell.swift in Sources */,
 				4DB317E61D45BB3600BEEADF /* MViewController.swift in Sources */,
 				4DC2700F1D795CB600A11D3D /* MMoreGoodsVc.swift in Sources */,
 				4DC270111D795E1C00A11D3D /* MCategorySegmentView.swift in Sources */,
@@ -450,6 +477,7 @@
 				4DE138521D483B5400524DBE /* MTypePushView.swift in Sources */,
 				4DE04F341D7821AA00525B77 /* MHotListModel.swift in Sources */,
 				4D74A4831D4993880092F11D /* MGiftListModel.swift in Sources */,
+				4D7B65FB1D7D5B5800D1BC80 /* MCategoryModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
