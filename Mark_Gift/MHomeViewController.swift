@@ -23,8 +23,7 @@ class MHomeViewController: MViewController {
     
        MHttpTool.getRequestWithParameters("v2/channels/preset", parameters: ["gender":1 as Optional<AnyObject>,"generation":0 as Optional<AnyObject> ], success: { (response) in
         let arrTypes = Mapper<MSegmentTypeModel>().mapArray(JSONArray:  response?.data?["channels"] as! [[String : Any]])
-        let arr:Array<[String:Any]> = response?.data?["channels"] as! Array
-        print(arr as Any)
+    
 //        let arrTypes = Mapper<MSegmentTypeModel>().mapArray(response?.data!["channels"])
         self.types = arrTypes
         self.topView?.reloadData(arrTypes!, fentchFunc: { (model) -> String in
