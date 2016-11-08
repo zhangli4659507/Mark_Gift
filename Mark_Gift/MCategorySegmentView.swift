@@ -19,11 +19,11 @@ class MCategorySegmentView: UIView {
         
         let  tapLeft:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MCategorySegmentView.actionTapLeft))
         self.lblLeft.addGestureRecognizer(tapLeft)
-        self.lblLeft.userInteractionEnabled = true
+        self.lblLeft.isUserInteractionEnabled = true
         
         let  tapRight:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MCategorySegmentView.actionTapRight))
         self.lblRight.addGestureRecognizer(tapRight)
-        self.lblRight.userInteractionEnabled = true
+        self.lblRight.isUserInteractionEnabled = true
         
         
     }

@@ -18,7 +18,7 @@ class AuthorInfoModel: Mappable {
     var id: Int?
     var nickname: String?
     
-    required init?(_ map: Map) {
+    required init?(map: Map) {
         
     }
     
@@ -48,7 +48,7 @@ class ColumnModel: Mappable {
     var title: String?
     var updated_at: Int?
     
-    required init?(_ map: Map) {
+    required init?(map: Map) {
         
     }
     
@@ -93,7 +93,7 @@ class MGiftListModel: Mappable {
     var pdated_at: Int?
     var url: String?
     
-    required init?(_ map: Map) {
+    required init?(map: Map) {
         
     }
     
@@ -127,7 +127,7 @@ class MListDataModel: Mappable {
     var items: [MGiftListModel]?
     var paging: [String:String]?
     
-    required init?(_ map: Map) {
+    required init?(map: Map) {
         
     }
     

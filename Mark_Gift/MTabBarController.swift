@@ -14,12 +14,12 @@ class MTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tabBar.translucent = true
+        tabBar.isTranslucent = true
         for curItem in self.tabBar.items! {
         
-        curItem.selectedImage = curItem.selectedImage?.imageWithRenderingMode(.AlwaysOriginal)
-        curItem.setTitleTextAttributes([NSForegroundColorAttributeName : UIColor(red: 66/255, green: 86 / 255, blue: 97 / 255, alpha: 1)], forState: UIControlState.Normal)
-        curItem.setTitleTextAttributes([NSForegroundColorAttributeName : UIColor(red: 225/255, green: 59 / 255, blue: 42 / 255, alpha: 1)], forState: UIControlState.Selected)
+        curItem.selectedImage = curItem.selectedImage?.withRenderingMode(.alwaysOriginal)
+        curItem.setTitleTextAttributes([NSForegroundColorAttributeName : UIColor(red: 66/255, green: 86 / 255, blue: 97 / 255, alpha: 1)], for: UIControlState())
+        curItem.setTitleTextAttributes([NSForegroundColorAttributeName : UIColor(red: 225/255, green: 59 / 255, blue: 42 / 255, alpha: 1)], for: UIControlState.selected)
         }
         
         // Do any additional setup after loading the view.

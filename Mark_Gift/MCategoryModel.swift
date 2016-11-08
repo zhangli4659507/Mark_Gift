@@ -18,7 +18,7 @@ struct MSingleCategoryTitleModel:Mappable {
     var status:Int?
     var subcategories:[MSingleCategoryModel]?
     
-    init?(_ map: Map) {
+    init?(map: Map) {
         
     }
     
@@ -44,7 +44,7 @@ struct MSingleCategoryModel:Mappable {
     var parent_id:Int?
     var status:Int?
     
-    init?(_ map: Map) {
+    init?(map: Map) {
         
     }
     

@@ -21,7 +21,7 @@ class MHttpResponse: Mappable {
     var code:Int?
     var data:AnyObject?
     var message:String?
-    required init?(_ map: Map) {
+    required init?(map: Map) {
         
     }
      func mapping(map: Map) {
@@ -32,8 +32,8 @@ class MHttpResponse: Mappable {
 }
 
 class MHttpTool: NSObject {
- typealias successCourse = (response:MHttpResponse?)->Void
- typealias errorCourse = (error:NSError?)->Void
+ typealias successCourse = (_ response:MHttpResponse?)->Void
+ typealias errorCourse = (_ error:NSError?)->Void
     
     static let netWork:Networking = {
 
@@ -41,38 +41,39 @@ class MHttpTool: NSObject {
     
     }()
     
-    static func getRequestWithParameters(urlString:String,parameters:[String:AnyObject!], success:successCourse,failtrueCourse:errorCourse) {
+    static func getRequestWithParameters(_ urlString:String,parameters:[String:AnyObject?], success:@escaping successCourse,failtrueCourse:@escaping errorCourse) {
     
         var parStr:String = String()
         for (key,value) in parameters {
-            parStr.appendContentsOf(String(UTF8String: key)!)
-            parStr.appendContentsOf("=")
-            parStr.appendContentsOf(String(value))
-            parStr.appendContentsOf("&")
+            parStr.append(String(validatingUTF8: key)!)
+            parStr.append("=")
+            parStr.append(String(describing: value))
+            parStr.append("&")
 
         }
         if  parStr.hasSuffix("&") {
-           let startIndex = parStr.startIndex.advancedBy(0)
-            let endIndex = parStr.endIndex.advancedBy(-1)
-         parStr =  parStr.substringWithRange(Range(startIndex..<endIndex))
+           let startIndex = parStr.characters.index(parStr.startIndex, offsetBy: 0)
+            let endIndex = parStr.characters.index(parStr.endIndex, offsetBy: -1)
+         parStr =  parStr.substring(with: Range(startIndex..<endIndex))
         }
         var finalUrl:String = String(urlString)
         if !finalUrl.hasSuffix("?") {
-           finalUrl = finalUrl.stringByAppendingString("?")
+           finalUrl = finalUrl + "?"
         }
-        finalUrl.appendContentsOf(parStr)
+        finalUrl.append(parStr)
        self.getRequestData(finalUrl, success: success, failtrueCourse: failtrueCourse)
         
     }
     
-    static func getRequestData(urlString:String ,success:successCourse,failtrueCourse:errorCourse) {
+    static func getRequestData(_ urlString:String ,success:@escaping successCourse,failtrueCourse:@escaping errorCourse) {
             netWork.GET(urlString) { (JSON, error) in
            
             if error != nil {
-                failtrueCourse(error:error)
+                failtrueCourse(error)
             } else {
-               let model = Mapper<MHttpResponse>().map(JSON)
-                success(response: model)
+                let model = Mapper<MHttpResponse>().map(JSONObject: JSON)
+//               let model = Mapper<MHttpResponse>().map(JSON)
+                success(model)
             }
         }
         

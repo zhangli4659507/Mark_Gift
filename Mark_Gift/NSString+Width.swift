@@ -10,9 +10,9 @@ import UIKit
 
 extension NSString {
 
-    func stringWidth(font:UIFont, maxSize:CGSize) -> CGFloat {
+    func stringWidth(_ font:UIFont, maxSize:CGSize) -> CGFloat {
         
-        let rect:CGRect = self.boundingRectWithSize(maxSize, options: .UsesLineFragmentOrigin, attributes: [NSFontAttributeName : font], context: nil)
+        let rect:CGRect = self.boundingRect(with: maxSize, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName : font], context: nil)
             return rect.size.width
         
         

@@ -62,18 +62,19 @@ private extension MHotViewController {
         self.view.addSubview(self.collectionView!)
         
         self.collectionView?.mas_makeConstraints({ (make) in
-            make.edges.equalTo()(self.view).insets()(UIEdgeInsetsZero)
+            make?.edges.equalTo()(self.view)?.insets()(UIEdgeInsets.zero)
         })
         
         
-        self.collectionView?.registerNib(UINib(nibName: "MHotCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MHotCollectionViewCell")
+        self.collectionView?.register(UINib(nibName: "MHotCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MHotCollectionViewCell")
         
     }
     
     func requestData () {
     
-        MHttpTool.getRequestWithParameters("v2/items", parameters: ["gender":1,"limit":20,"offset":0,"generation":0], success: { (response) in
-            self.dataList = Mapper<MHotList>().mapArray(response?.data!["items"])
+        MHttpTool.getRequestWithParameters("v2/items", parameters: ["gender":1 as Optional<AnyObject>,"limit":20 as Optional<AnyObject>,"offset":0 as Optional<AnyObject>,"generation":0 as Optional<AnyObject>], success: { (response) in
+            self.dataList = Mapper<MHotList>().mapArray(JSONObject: response?.data?["items"])
+//            self.dataList = Mapper<MHotList>().mapArray(response?.data!["items"])
             self.collectionView?.reloadData()
             }) { (error) in
                 
@@ -86,7 +87,7 @@ private extension MHotViewController {
 
 extension MHotViewController:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
 
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
         
         if let value = self.dataList {
@@ -99,9 +100,9 @@ extension MHotViewController:UICollectionViewDelegate,UICollectionViewDataSource
         
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell:MHotCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("MHotCollectionViewCell", forIndexPath: indexPath) as! MHotCollectionViewCell
+        let cell:MHotCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MHotCollectionViewCell", for: indexPath) as! MHotCollectionViewCell
         
         let model:MHotList = self.dataList![indexPath.item] 
         cell.configCellWithModel(model.data!)

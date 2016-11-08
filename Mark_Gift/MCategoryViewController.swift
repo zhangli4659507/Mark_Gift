@@ -23,9 +23,9 @@ class MCategoryViewController: MViewController {
 
     func addTitleView() {
     
-        titleView = NSBundle.mainBundle().loadNibNamed("MCategorySegmentView", owner: nil, options: nil).first as? MCategorySegmentView
-        titleView?.frame = CGRectMake(0, 0, 80, 44)
-        titleView?.backgroundColor=UIColor.clearColor()
+        titleView = Bundle.main.loadNibNamed("MCategorySegmentView", owner: nil, options: nil)?.first as? MCategorySegmentView
+        titleView?.frame = CGRect(x: 0, y: 0, width: 80, height: 44)
+        titleView?.backgroundColor=UIColor.clear
         self.navigationItem.titleView = titleView
         
         
@@ -33,7 +33,7 @@ class MCategoryViewController: MViewController {
         titleView?.actionTap = {[weak titleView] (index:Int) in
         
         
-            UIView.animateWithDuration(0.4, animations: {
+            UIView.animate(withDuration: 0.4, animations: {
                 
                 titleView?.centerContans.constant = index == 0 ? -20 : 20
                 }, completion: { (state) in
@@ -52,14 +52,14 @@ class MCategoryViewController: MViewController {
                 toVc = weakSelf!.singelVc
             }
             
-            weakSelf?.transitionFromViewController(fromVc!, toViewController:toVc! , duration: 0.25, options: .TransitionNone, animations: { 
+            weakSelf?.transition(from: fromVc!, to:toVc! , duration: 0.25, options: UIViewAnimationOptions(), animations: { 
                 
                 }, completion: { (state) in
                     
             })
             
             toVc!.view.mas_makeConstraints { (make) in
-                make.edges.equalTo()(weakSelf!.view).insets()(UIEdgeInsetsZero);
+                make?.edges.equalTo()(weakSelf!.view)?.insets()(UIEdgeInsets.zero);
             }
         }
        
@@ -79,7 +79,7 @@ class MCategoryViewController: MViewController {
         
         self.view.addSubview(moreVc!.view)
         moreVc!.view.mas_makeConstraints { (make) in
-            make.edges.equalTo()(self.view).insets()(UIEdgeInsetsZero);
+            make?.edges.equalTo()(self.view)?.insets()(UIEdgeInsets.zero);
         }
         
         

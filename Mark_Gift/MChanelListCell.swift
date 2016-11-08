@@ -32,9 +32,9 @@ class MChanelListCell: UITableViewCell {
     
     func setUiValue()  {
       
-        self.authorHead.sd_setImageWithURL(NSURL(string: (valueModel?.author?.avatar_url)!), placeholderImage: UIImage(named: "me_avatar_boy"))
+        self.authorHead.sd_setImage(with: URL(string: (valueModel?.author?.avatar_url)!), placeholderImage: UIImage(named: "me_avatar_boy"))
         self.authorName.text = valueModel?.author?.nickname
-        self.gitftIma.sd_setImageWithURL(NSURL(string: (valueModel?.cover_image_url)!), placeholderImage: UIImage(named: "logo"))
+        self.gitftIma.sd_setImage(with: URL(string: (valueModel?.cover_image_url)!), placeholderImage: UIImage(named: "logo"))
         self.giftType.text = valueModel?.column?.category
         self.title.text = valueModel?.column?.title
         self.giftTitle.text = valueModel?.title
@@ -43,13 +43,13 @@ class MChanelListCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.selectionStyle = .None
+        self.selectionStyle = .none
         self.authorHead.roundView(self.authorHead.width/2)
         self.giftType.roundView(4)
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state

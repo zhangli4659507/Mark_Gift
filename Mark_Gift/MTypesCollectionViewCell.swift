@@ -16,8 +16,8 @@ class MTypesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var btnType: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
-        btnType.setTitleColor(UIColor().M_Basic_red, forState: .Selected)
-        btnType.userInteractionEnabled = false
+        btnType.setTitleColor(UIColor().M_Basic_red, for: .selected)
+        btnType.isUserInteractionEnabled = false
         // Initialization code
     }
 

@@ -21,8 +21,9 @@ class MHomeViewController: MViewController {
        
        createUI()
         
-       MHttpTool.getRequestWithParameters("v2/channels/preset", parameters: ["gender":2,"generation":2], success: { (response) in
-        let arrTypes = Mapper<MSegmentTypeModel>().mapArray(response?.data!["channels"])
+       MHttpTool.getRequestWithParameters("v2/channels/preset", parameters: ["gender":2 as Optional<AnyObject>,"generation":2 as Optional<AnyObject>], success: { (response) in
+        let arrTypes = Mapper<MSegmentTypeModel>().mapArray(JSONArray:  response?.data?["channels"] as! [[String : Any]])
+//        let arrTypes = Mapper<MSegmentTypeModel>().mapArray(response?.data!["channels"])
         self.types = arrTypes
         self.topView?.reloadData(arrTypes!, fentchFunc: { (model) -> String in
             return model.name!
@@ -55,7 +56,7 @@ class MHomeViewController: MViewController {
 private extension MHomeViewController {
     
     func createUI(){
-        self.topView = MHomeSigmentView(frame: CGRectZero, baseView: view)
+        self.topView = MHomeSigmentView(frame: CGRect.zero, baseView: view)
         self.view.addSubview(self.topView!)
         self.topView?.actionIndexCourse = {(index,model) in
             
@@ -63,27 +64,27 @@ private extension MHomeViewController {
             if vc.model == nil {
                 vc.model = model
             }
-            self.pageVc?.setViewControllers([vc], direction: .Forward, animated: true, completion: { (state) in
+            self.pageVc?.setViewControllers([vc], direction: .forward, animated: true, completion: { (state) in
                 
             })
         }
         self.topView?.mas_makeConstraints({ (make) in
-            make.leading.top().trailing().equalTo()(self.view).offset()(0.0)
-            make.height.offset()(55)
+            make?.leading.top().trailing().equalTo()(self.view)?.offset()(0.0)
+            make?.height.offset()(55)
         })
         
-        self.pageVc = UIPageViewController(transitionStyle: .Scroll, navigationOrientation: .Horizontal, options:  nil)
+        self.pageVc = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options:  nil)
         self.addChildViewController(self.pageVc!)
         self.view.addSubview((self.pageVc?.view)!)
         self.pageVc?.delegate = self
         self.pageVc?.dataSource = self
         self.pageVc?.view.mas_makeConstraints({ (make) in
-            make.top.equalTo()(self.topView?.mas_bottom).offset()(0)
-            make.bottom.leading().trailing().equalTo()(self.view).offset()(0)
+            make?.top.equalTo()(self.topView?.mas_bottom)?.offset()(0)
+            make?.bottom.leading().trailing().equalTo()(self.view)?.offset()(0)
         })
     }
     
-    func initViewcontrollers(types: Array<MSegmentTypeModel>) {
+    func initViewcontrollers(_ types: Array<MSegmentTypeModel>) {
         
         for index in 0 ..< types.count  {
             let vc:EHomePageViewController = EHomePageViewController()
@@ -93,7 +94,7 @@ private extension MHomeViewController {
         if types.count > 0 {
             let vc:EHomePageViewController = viewcontrollers[0]
             vc.model = types[0]
-            self.pageVc?.setViewControllers([vc], direction: .Forward, animated: true, completion: { (state) in
+            self.pageVc?.setViewControllers([vc], direction: .forward, animated: true, completion: { (state) in
                 
             })
         }
@@ -103,7 +104,7 @@ private extension MHomeViewController {
 
 //MARK:pageviewControllerDelegate
 extension MHomeViewController:UIPageViewControllerDataSource,UIPageViewControllerDelegate {
-    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
         let curVc:EHomePageViewController = viewController as!EHomePageViewController
         self.topView?.changeCurIndex(curVc.curIndex)
@@ -118,7 +119,7 @@ extension MHomeViewController:UIPageViewControllerDataSource,UIPageViewControlle
         return viewcontrollers[index]
     }
     
-    func  pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+    func  pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         let curVc:EHomePageViewController = viewController as!EHomePageViewController
         self.topView?.changeCurIndex(curVc.curIndex)
         if curVc.model == nil {

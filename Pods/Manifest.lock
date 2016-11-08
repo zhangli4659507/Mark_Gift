@@ -1,35 +1,42 @@
 PODS:
-  - JSON (4.0.2)
   - Masonry (0.6.3)
-  - NetworkActivityIndicator (0.1.4)
-  - Networking (0.12.3):
-    - JSON (~> 4.0.2)
-    - NetworkActivityIndicator (~> 0.1.4)
-    - TestCheck (~> 0.3.0)
-  - ObjectMapper (1.0.1)
+  - Networking (2.3.1)
+  - ObjectMapper (2.2.1)
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
-  - TestCheck (0.3.0)
   - UIColor_Hex_Swift (1.6)
 
 DEPENDENCIES:
   - Masonry
-  - Networking
-  - ObjectMapper
+  - Networking (from `https://github.com/3lvis/Networking.git`, branch `master`)
+  - ObjectMapper (from `https://github.com/Hearst-DD/ObjectMapper.git`, branch `master`)
   - SDWebImage
   - UIColor_Hex_Swift
 
+EXTERNAL SOURCES:
+  Networking:
+    :branch: master
+    :git: https://github.com/3lvis/Networking.git
+  ObjectMapper:
+    :branch: master
+    :git: https://github.com/Hearst-DD/ObjectMapper.git
+
+CHECKOUT OPTIONS:
+  Networking:
+    :commit: 7a331529ca47d1854513320c8e84fe53bcd06dbb
+    :git: https://github.com/3lvis/Networking.git
+  ObjectMapper:
+    :commit: 1e425ae5599343d3b475a7dcd08cdc8acaee037f
+    :git: https://github.com/Hearst-DD/ObjectMapper.git
+
 SPEC CHECKSUMS:
-  JSON: d08f22c3e523be050d5d5f40bca43ec02d95b2cc
   Masonry: ff105a956abcd19a618b2028b121cb638d7a8e2f
-  NetworkActivityIndicator: 406f51c6c833138245fffd2fabeb0e509c9ba05c
-  Networking: 671fc8bc517212177d0f1cecb6b8c54ed1a2158b
-  ObjectMapper: 98524bac0dca46c6b3d5ee02cd410fc700ec6ce2
+  Networking: 4a4132a2c6122bebc2f02195a0c28a1ba1fbbcb0
+  ObjectMapper: 41e43e1a89f8060ef5ea5d04ba852e269a621d68
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
-  TestCheck: 42c1343664986c0cbfaa20a62622d6f6fb70a407
   UIColor_Hex_Swift: c4147b9bdc5b799ec2dfe384672445fd08dca07e
 
-PODFILE CHECKSUM: 3f085feafd8615cd790734d0b25ece05e841a851
+PODFILE CHECKSUM: 65e424481b3d70f5d002f7df2eae7daf251abfc3
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.2.0.beta.1

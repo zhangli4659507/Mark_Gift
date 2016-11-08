@@ -4,17 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>JSON.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Masonry.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>NetworkActivityIndicator.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -39,11 +29,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>TestCheck.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>UIColor_Hex_Swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,47 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2E670F5DAF12932961504CC8C06B004C</key>
+		<key>1F1A8F20DA1349846302378AB8F2BA29</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>319E8821D9163265F3102DB6FBDFCBD5</key>
+		<key>7644F6853188C5A4375FC8103D8BD0E4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>445DF2988C0E112160CC1C8160747E7A</key>
+		<key>89BAE03EF36EC3C452C9A7EF0BB5F5C8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9AB4352432F67B5A4D7AEF0C03985C35</key>
+		<key>A03B0A6EA2F403CDE0BC843712F7AF38</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A9A83F63385AA43314397B8DD375464B</key>
+		<key>B43918AB915242B851ABEFB5D70BE0AD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C17768A22E0D09C860C33FDA18243BD9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C37240114F960431195002B2E0AC805E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D53720AD1387B42405DCC0E36A083B22</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E82421CBEE4F9A6C8D5D9FEC459CE24A</key>
+		<key>D52144DE9D7255DE912490FF5A806573</key>
 		<dict>
 			<key>primary</key>
 			<true/>

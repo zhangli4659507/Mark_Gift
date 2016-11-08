@@ -12,7 +12,7 @@ class MTypePushView: UIView,UICollectionViewDataSource,UICollectionViewDelegate,
 
     
     var collectionView:UICollectionView? = nil
-    var selectIndexCourse:(Int->Void)?
+    var selectIndexCourse:((Int)->Void)?
     var typesArr:Array<MSegmentTypeModel>? {
         didSet {
         self.collectionView?.reloadData()
@@ -38,7 +38,7 @@ class MTypePushView: UIView,UICollectionViewDataSource,UICollectionViewDelegate,
         self.selectIndexCourse = {(index) in
         
         }
-        self.backgroundColor = UIColor.whiteColor()
+        self.backgroundColor = UIColor.white
         self.createUI()
     }
     
@@ -51,37 +51,37 @@ class MTypePushView: UIView,UICollectionViewDataSource,UICollectionViewDelegate,
         let flowOut:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         flowOut.minimumLineSpacing = 0.0
         flowOut.minimumInteritemSpacing = 0.0
-        flowOut.itemSize = CGSizeMake(MTypePushView.sizeWidth, MTypePushView.sizeHeight)
+        flowOut.itemSize = CGSize(width: MTypePushView.sizeWidth, height: MTypePushView.sizeHeight)
         self.collectionView = UICollectionView(frame: self.bounds, collectionViewLayout: flowOut)
-        self.collectionView?.backgroundColor = UIColor.whiteColor()
+        self.collectionView?.backgroundColor = UIColor.white
         self.collectionView?.delegate = self
         self.collectionView?.dataSource = self
-        self.collectionView?.registerNib( UINib(nibName: "MTypesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MTypesCollectionViewCell")
+        self.collectionView?.register( UINib(nibName: "MTypesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MTypesCollectionViewCell")
         self.addSubview(self.collectionView!)
         
         self.collectionView?.mas_makeConstraints({ (make) in
-            make.edges.equalTo()(self).insets()(UIEdgeInsetsZero)
+            make?.edges.equalTo()(self)?.insets()(UIEdgeInsets.zero)
         })
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return (typesArr != nil) ? (typesArr?.count)! : 0
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MTypesCollectionViewCell", forIndexPath: indexPath) as! MTypesCollectionViewCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MTypesCollectionViewCell", for: indexPath) as! MTypesCollectionViewCell
         let model = typesArr?[indexPath.row]
-        cell.btnType.setTitle(model!.name, forState: .Normal)
-        cell.btnType.selected = false
-        cell.selectecLineView.hidden = true
+        cell.btnType.setTitle(model!.name, for: UIControlState())
+        cell.btnType.isSelected = false
+        cell.selectecLineView.isHidden = true
         if indexPath.row == curSelectIndex {
-            cell.btnType.selected = true
-            cell.selectecLineView.hidden = false
+            cell.btnType.isSelected = true
+            cell.selectecLineView.isHidden = false
         }
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.selectIndexCourse!(indexPath.row)
     }
     

@@ -15,7 +15,7 @@ class MSegmentTypeModel: Mappable {
     var id:Int?
     var name:String?
     
-    required init?(_ map: Map) {
+    required init?(map: Map) {
         
     }
      func mapping(map: Map) {

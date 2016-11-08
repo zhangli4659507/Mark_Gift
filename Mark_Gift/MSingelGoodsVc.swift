@@ -30,8 +30,8 @@ class MSingelGoodsVc: MViewController {
     func requestData() {
     
         MHttpTool.getRequestData("v2/item_categories/tree", success: { (response) in
-            
-            self.arrData = Mapper<MSingleCategoryTitleModel>().mapArray(response?.data!["categories"])
+            self.arrData = Mapper<MSingleCategoryTitleModel>().mapArray(JSONArray: response?.data?["categories"] as! [[String : Any]])
+//            self.arrData = Mapper<MSingleCategoryTitleModel>().mapArray(response?.data!["categories"])
             self.tableView?.reloadData()
             self.collectionView?.reloadData()
             }) { (error) in
@@ -62,25 +62,25 @@ extension MSingelGoodsVc:UITableViewDelegate,UITableViewDataSource {
         tableView = UITableView(frame: self.view.bounds)
         tableView?.delegate = self
         tableView?.dataSource = self
-        tableView?.tableFooterView = UIView(frame: CGRectZero)
+        tableView?.tableFooterView = UIView(frame: CGRect.zero)
         self.view.addSubview(tableView!)
         
         tableView?.mas_makeConstraints({ (make) in
             
-           make.top.bottom().left().equalTo()(self.view).offset()(0)
-           make.width.offset()(KScreenWidth/4)
+           make?.top.bottom().left().equalTo()(self.view)?.offset()(0)
+           make?.width.offset()(KScreenWidth/4)
         })
         
         tableView?.tableViewRegiesterNibName("MSingleTypeCell")
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return (self.arrData != nil) ? (self.arrData?.count)! : 0
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell:MSingleTypeCell = tableView.dequeueReusableCellWithIdentifier("MSingleTypeCell") as! MSingleTypeCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell:MSingleTypeCell = tableView.dequeueReusableCell(withIdentifier: "MSingleTypeCell") as! MSingleTypeCell
         let typeModel:MSingleCategoryTitleModel = self.arrData![indexPath.row]
         cell.lblTypeName.text = typeModel.name
         
@@ -99,32 +99,32 @@ extension MSingelGoodsVc:UICollectionViewDelegateFlowLayout,UICollectionViewDele
     
         let flowLayOut:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         
-        flowLayOut.itemSize = CGSizeMake(KScreenWidth/4.0, KScreenWidth/4.0)
+        flowLayOut.itemSize = CGSize(width: KScreenWidth/4.0, height: KScreenWidth/4.0)
         flowLayOut.minimumLineSpacing = 0
         flowLayOut.minimumInteritemSpacing = 0
-        flowLayOut.headerReferenceSize = CGSizeMake(KScreenWidth*3.0/4, 20)
+        flowLayOut.headerReferenceSize = CGSize(width: KScreenWidth*3.0/4, height: 20)
         
         collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: flowLayOut)
         collectionView?.delegate = self
         collectionView?.dataSource = self
-        collectionView?.backgroundColor = UIColor.clearColor()
+        collectionView?.backgroundColor = UIColor.clear
         self.view.addSubview(collectionView!)
         
         collectionView?.mas_makeConstraints({ (make) in
-            make.top.bottom().right().equalTo()(self.view).offset()(0)
-            make.left.equalTo()(self.tableView!.mas_right).offset()(0)
+            make?.top.bottom().right().equalTo()(self.view)?.offset()(0)
+            make?.left.equalTo()(self.tableView!.mas_right)?.offset()(0)
         })
         
-        collectionView?.registerNib(UINib(nibName: "MSingleGoodsCell", bundle: nil), forCellWithReuseIdentifier: "MSingleGoodsCell")
+        collectionView?.register(UINib(nibName: "MSingleGoodsCell", bundle: nil), forCellWithReuseIdentifier: "MSingleGoodsCell")
         
-        collectionView?.registerNib(UINib.init(nibName: "MSingleTypeTitleView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "MSingleTypeTitleView")
+        collectionView?.register(UINib.init(nibName: "MSingleTypeTitleView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "MSingleTypeTitleView")
     }
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
        return (self.arrData != nil) ? (self.arrData?.count)! : 0
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     
         if self.arrData == nil {
         
@@ -136,21 +136,21 @@ extension MSingelGoodsVc:UICollectionViewDelegateFlowLayout,UICollectionViewDele
         return (typeModel.subcategories?.count)!
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell:MSingleGoodsCell = collectionView.dequeueReusableCellWithReuseIdentifier("MSingleGoodsCell", forIndexPath: indexPath) as! MSingleGoodsCell
+        let cell:MSingleGoodsCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MSingleGoodsCell", for: indexPath) as! MSingleGoodsCell
         let typeModel:MSingleCategoryTitleModel = self.arrData![indexPath.section]
         let model:MSingleCategoryModel = typeModel.subcategories![indexPath.row]
         cell.lblGoodsName.text = model.name
-        cell.imavGoods.sd_setImageWithURL(NSURL(string: model.icon_url!), placeholderImage: nil)
+        cell.imavGoods.sd_setImage(with: URL(string: model.icon_url!), placeholderImage: nil)
         
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
 //        MSingleTypeTitleView
-         let headView:MSingleTypeTitleView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "MSingleTypeTitleView", forIndexPath: indexPath) as! MSingleTypeTitleView
+         let headView:MSingleTypeTitleView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "MSingleTypeTitleView", for: indexPath) as! MSingleTypeTitleView
         if kind == UICollectionElementKindSectionHeader && self.arrData != nil {
             let typeModel:MSingleCategoryTitleModel = self.arrData![indexPath.section]
             headView.lblTypeTitle.text = typeModel.name
@@ -161,11 +161,11 @@ extension MSingelGoodsVc:UICollectionViewDelegateFlowLayout,UICollectionViewDele
         
     }
     
-    func collectionView(collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, atIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath) {
         
     }
     
-    func collectionView(collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, atIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, at indexPath: IndexPath) {
         
     }
     

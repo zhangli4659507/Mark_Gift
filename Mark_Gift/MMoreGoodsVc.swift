@@ -12,7 +12,7 @@ class MMoreGoodsVc: MViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-      self.view.backgroundColor = UIColor.orangeColor()
+      self.view.backgroundColor = UIColor.orange
         // Do any additional setup after loading the view.
     }
 

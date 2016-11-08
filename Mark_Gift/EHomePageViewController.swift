@@ -26,14 +26,14 @@ class EHomePageViewController: MViewController {
         }
     }
     
-    private lazy var tableView: UITableView = {
+    fileprivate lazy var tableView: UITableView = {
     
         let tableView:UITableView = UITableView(frame: self.view.bounds)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 200
-        tableView.separatorStyle = .None
+        tableView.separatorStyle = .none
         return tableView
     }()
     
@@ -43,14 +43,14 @@ class EHomePageViewController: MViewController {
         super.viewDidLoad()
         self.view.addSubview(self.tableView)
         tableView.mas_makeConstraints({ (make) in
-            make.edges.equalTo()(self.view).insets()(UIEdgeInsetsZero)
+            make?.edges.equalTo()(self.view)?.insets()(UIEdgeInsets.zero)
             
         })
         self.tableView.tableViewRegiesterNibName("MChanelListCell")
         // Do any additional setup after loading the view.
     }
 
-    func requestData(isHeader: Bool, isMore:Bool) {
+    func requestData(_ isHeader: Bool, isMore:Bool) {
     
         
         if isHeader {
@@ -61,8 +61,8 @@ class EHomePageViewController: MViewController {
         let strUrl: String = "v2/channels/\((model?.id)!)/items_v2?gender=2&generation=2&limit=20&offset=\(offset)"
          MHttpTool.getRequestData(strUrl, success: { (response) in
             
-            let basicModel:MListDataModel = Mapper<MListDataModel>().map(response?.data)!
-            self.arrData?.addObjectsFromArray(basicModel.items!)
+            let basicModel:MListDataModel = Mapper<MListDataModel>().map(JSONObject: response?.data)!
+            self.arrData?.addObjects(from: basicModel.items!)
             self.tableView.reloadData()
             }) { (error) in
                 
@@ -94,17 +94,17 @@ class EHomePageViewController: MViewController {
 
 //MARK:tableviewDelegate Extension
 extension EHomePageViewController:UITableViewDataSource {
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (arrData?.count)!
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell:MChanelListCell = tableView.dequeueReusableCellWithIdentifier("MChanelListCell") as! MChanelListCell
+        let cell:MChanelListCell = tableView.dequeueReusableCell(withIdentifier: "MChanelListCell") as! MChanelListCell
         cell.valueModel = arrData![indexPath.row] as? MGiftListModel
         
         return cell
@@ -115,7 +115,7 @@ extension EHomePageViewController:UITableViewDataSource {
 
 extension EHomePageViewController:UITableViewDelegate {
 
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
     

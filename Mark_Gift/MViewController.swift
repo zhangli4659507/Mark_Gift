@@ -8,6 +8,30 @@
 
 import UIKit
 import UIColor_Hex_Swift
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 
 class MViewController: UIViewController {
@@ -18,7 +42,7 @@ class MViewController: UIViewController {
         
         self.automaticallyAdjustsScrollViewInsets = false
         self.automaticallyAdjustsScrollViewInsets = false;
-        self.edgesForExtendedLayout = UIRectEdge.None
+        self.edgesForExtendedLayout = UIRectEdge()
         self.extendedLayoutIncludesOpaqueBars = false;
         self.modalPresentationCapturesStatusBarAppearance = false;
         navigationItem.leftBarButtonItem = createBackBarItem()
@@ -34,24 +58,24 @@ class MViewController: UIViewController {
      */
     func createBackBarItem() -> UIBarButtonItem {
        
-    let backIma = UIImage(named: "btnBack")?.imageWithRenderingMode(.AlwaysOriginal)
-     return   UIBarButtonItem(image: backIma, style: .Done, target: self, action: #selector(MViewController.backAction(_:)))
+    let backIma = UIImage(named: "btnBack")?.withRenderingMode(.alwaysOriginal)
+     return   UIBarButtonItem(image: backIma, style: .done, target: self, action: #selector(MViewController.backAction(_:)))
     }
     
-    @objc private func backAction (button:UIButton) {
+    @objc fileprivate func backAction (_ button:UIButton) {
     
         
         if backPop != nil {
             backPop!()
         }
         if self.navigationController?.viewControllers.count > 1 {
-            self.navigationController?.popViewControllerAnimated(true)
+            self.navigationController?.popViewController(animated: true)
         } else if self.navigationController != nil {
-          self.navigationController?.dismissViewControllerAnimated(true, completion: { 
+          self.navigationController?.dismiss(animated: true, completion: { 
             
           })
         } else {
-            self.dismissViewControllerAnimated(true, completion: { 
+            self.dismiss(animated: true, completion: { 
                 
             })
         }
@@ -59,7 +83,7 @@ class MViewController: UIViewController {
     }
     deinit {
     
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
         print("\(NSStringFromClass(self.classForCoder)) deInit")
     }
     

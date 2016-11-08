@@ -13,9 +13,9 @@ class MNavController: UINavigationController {
     override func viewDidLoad() {
     super.viewDidLoad()
     let color = UIColor(rgba: "#ff2d47")
-    UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: true)
+    UIApplication.shared.setStatusBarStyle(.lightContent, animated: true)
     self.navigationBar.barTintColor = color
-        self.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor(),NSFontAttributeName:UIFont(name:"Helvetica",size:17)!]
+        self.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white,NSFontAttributeName:UIFont(name:"Helvetica",size:17)!]
         // Do any additional setup after loading the view.
     }
 

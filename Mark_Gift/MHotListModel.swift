@@ -14,7 +14,7 @@ struct MHotList:Mappable {
     var data:MHotListData?
     var type:String?
     
-    init?(_ map: Map) {
+    init?(map: Map) {
         
     }
     
@@ -53,7 +53,7 @@ struct MHotListData:Mappable {
     var updated_at:Int?
     var url:String?
     var webp_urls:[String]?
-    init?(_ map: Map) {
+    init?(map: Map) {
         
     }
     

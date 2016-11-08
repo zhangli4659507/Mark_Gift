@@ -1,253 +1,327 @@
 ![Networking](https://raw.githubusercontent.com/3lvis/Networking/master/Images/cover-v3.png)
 
-[![Version](https://img.shields.io/cocoapods/v/Networking.svg?style=flat)](https://cocoapods.org/pods/Networking)
-[![License](https://img.shields.io/cocoapods/l/Networking.svg?style=flat)](https://cocoapods.org/pods/Networking)
-[![Platform](https://img.shields.io/cocoapods/p/Networking.svg?style=flat)](https://cocoapods.org/pods/Networking)
+ <div align = "center">
+  <a href="https://cocoapods.org/pods/Networking">
+    <img src="https://img.shields.io/cocoapods/v/Networking.svg?style=flat" />
+  </a>
+  <a href="https://github.com/SyncDB/Networking">
+    <img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" />
+  </a>
+  <a href="https://github.com/SyncDB/Networking#installation">
+    <img src="https://img.shields.io/badge/compatible-swift%203.0%20-orange.svg" />
+  </a>
+</div>
+
+<div align = "center">
+  <a href="https://cocoapods.org/pods/Networking" target="blank">
+    <img src="https://img.shields.io/cocoapods/p/Networking.svg?style=flat" />
+  </a>
+  <a href="https://cocoapods.org/pods/Networking" target="blank">
+    <img src="https://img.shields.io/cocoapods/l/Networking.svg?style=flat" />
+  </a>
+  <a href="https://gitter.im/SwiftNetworking/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link">
+    <img src="https://badges.gitter.im/SwiftNetworking/Lobby.svg" />    
+  </a>
+  <br>
+  <br>
+</div>
+
+**Networking** was born out of the necessity of having a simple networking library that doesn't have crazy programming abstractions or uses the latest reactive programming techniques, but just a plain, simple and convenient wrapper around `NSURLSession` that supports common needs such as faking requests and caching images out of the box. A library that is small enough to read in one go but useful enough to include in any project. That's how **Networking** came to life, a fully tested library for iOS, tvOS, watchOS and OS X that will always be there for you.
 
 - Super friendly API
 - Singleton free
+- No external dependencies
 - Optimized for unit testing
 - Minimal implementation
-- Easy stubbing
-- Runs synchronously in automatic testing enviroments
-- Image download and caching
+- Simple request cancellation
+- Fake requests easily (mocking/stubbing)
+- Runs synchronously in automatic testing environments
+- Image downloading and caching
 - Free
 
 ## Table of Contents
 
-* [Authentication](#authentication)
-    * [HTTP basic authentication](#http-basic-authentication)
-    * [Bearer token authentication](#bearer-token-authentication)
-* [GET](#get)
-    * [Stubbing GET](#stubbing-get)
-    * [Cancelling GET](#cancelling-get)
-* [POST](#post)
-    * [Stubbing POST](#stubbing-post)
-    * [Cancelling POST](#cancelling-post)
-* [PUT](#put)
-    * [Stubbing PUT](#stubbing-put)
-    * [Cancelling PUT](#cancelling-put)
-* [DELETE](#delete)
-    * [Stubbing DELETE](#stubbing-delete)
-    * [Cancelling DELETE](#cancelling-delete)
-* [Image download](#image-download)
-    * [Stubbing image download](#stubbing-image-download)
-    * [Cancelling image download](#cancelling-image-download)
-    * [Image download caching](#image-download-caching)
-* [Error logging](#error-logging)
-* [Network Activity Indicator](#network-activity-indicator)
-* [Installation](#installation)
+* [Choosing a configuration type](#choosing-a-configuration-type)
+* [Authenticating](#authenticating)
+    * [HTTP basic](#http-basic)
+    * [Bearer token](#bearer-token)
+    * [Custom authentication header](#custom-authentication-header)
+* [Making a request](#making-a-request)
+* [Choosing a content or parameter type](#choosing-a-content-or-parameter-type)
+    * [JSON](#json)
+    * [URL-encoding](#url-encoding)
+    * [Multipart](#multipart)
+    * [Others](#others)
+* [Cancelling a request](#cancelling-a-request)
+* [Faking a request](#faking-a-request)
+* [Downloading and caching an image](#downloading-and-caching-an-image)
+* [Logging errors](#logging-errors)
+* [Updating the Network Activity Indicator](#updating-the-network-activity-indicator)
+* [Installing](#installing)
 * [Author](#author)
 * [License](#license)
 * [Attribution](#attribution)
 
-## Authentication
+## Choosing a configuration type
 
-### HTTP basic authentication
+Since **Networking** is basically a wrapper of `NSURLSession` we can take leverage of the great configuration types that it supports, such as `Default`, `Ephemeral` and `Background`, if you don't provide any or don't have special needs then `Default` will be used.
 
-`Networking` supports [HTTP basic authentication](http://www.w3.org/Protocols/HTTP/1.0/spec.html#BasicAA):
+ - `Default`: The default session configuration uses a persistent disk-based cache (except when the result is downloaded to a file) and stores credentials in the user’s keychain. It also stores cookies (by default) in the same shared cookie store as the `NSURLConnection` and `NSURLDownload` classes.
 
-To authenticate using basic authentication with a username **"Aladdin"** and password **"open sesame"**, you would need to set the following header field: 
+- `Ephemeral`: An ephemeral session configuration object is similar to a default session configuration object except that the corresponding session object does not store caches, credential stores, or any session-related data to disk. Instead, session-related data is stored in RAM. The only time an ephemeral session writes data to disk is when you tell it to write the contents of a URL to a file. The main advantage to using ephemeral sessions is privacy. By not writing potentially sensitive data to disk, you make it less likely that the data will be intercepted and used later. For this reason, ephemeral sessions are ideal for private browsing modes in web browsers and other similar situations.
 
-`Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==`, which contains the string `Aladin:open sesame` in Base64 format. Luckily, `Networking` provides a simpler way to do this.
+- `Background`: This configuration type is suitable for transferring data files while the app runs in the background. A session configured with this object hands control of the transfers over to the system, which handles the transfers in a separate process. In iOS, this configuration makes it possible for transfers to continue even when the app itself is suspended or terminated.
 
-This is how you use basic authentication on Networking, the following example features a username: `user` and a password: `pswd`.
+```swift
+// Default
+let networking = Networking(baseURL: "http://httpbin.org")
+
+// Ephemeral
+let networking = Networking(baseURL: "http://httpbin.org", configurationType: .Ephemeral)
+```
+
+## Authenticating
+
+### HTTP basic
+
+To authenticate using [basic authentication](http://www.w3.org/Protocols/HTTP/1.0/spec.html#BasicAA) with a username **"aladdin"** and password **"opensesame"** you only need to do this:
 
 ```swift
 let networking = Networking(baseURL: "http://httpbin.org")
-networking.authenticate("user", password: "pswd")
-networking.GET("/basic-auth/user/pswd", completion: { JSON, error in
-    // Do something...
-})
+networking.setAuthorizationHeader(username: "aladdin", password: "opensesame")
+networking.GET("/basic-auth/aladdin/opensesame") { JSON, error in
+    // Successfully logged in! Now do something with the JSON
+}
 ```
 
-### Bearer token authentication
+### Bearer token
 
-`Networking` supports [Bearer Token Usage](https://tools.ietf.org/html/rfc6750):
-
-To authenticate using a bearer token **"AAAFFAAAA3DAAAAAA"**, you would need to set the following header field: 
-
-`Authorization: Bearer AAAFFAAAA3DAAAAAA`. Luckily, `Networking` provides a simpler way to do this.
-
-This is how you use bearer token authentication on Networking, the following example features a token: `AAAFFAAAA3DAAAAAA`.
+To authenticate using a [bearer token](https://tools.ietf.org/html/rfc6750) **"AAAFFAAAA3DAAAAAA"** you only need to do this:
 
 ```swift
-let networking = Networking(baseURL: "http://sample.org")
-networking.authenticate("AAAFFAAAA3DAAAAAA")
-networking.GET("/users", completion: { JSON, error in
+let networking = Networking(baseURL: "http://httpbin.org")
+networking.setAuthorizationHeader(token: "AAAFFAAAA3DAAAAAA")
+networking.GET("/get") { JSON, error in
     // Do something...
-})
+}
 ```
 
-## GET
+### Custom authentication header
+
+To authenticate using a custom authentication header, for example **"Token token=AAAFFAAAA3DAAAAAA"** you would need to set the following header field: `Authorization: Token token=AAAFFAAAA3DAAAAAA`. Luckily, **Networking** provides a simple way to do this:
+
+```swift
+let networking = Networking(baseURL: "http://httpbin.org")
+networking.setAuthorizationHeader(headerValue: "Token token=AAAFFAAAA3DAAAAAA")
+networking.GET("/get") { JSON, error in
+    // Do something...
+}
+```
+
+Providing the following authentication header `Anonymous-Token: AAAFFAAAA3DAAAAAA` is also possible:
+
+```swift
+let networking = Networking(baseURL: "http://httpbin.org")
+networking.setAuthorizationHeader(headerKey: "Anonymous-Token", headerValue: "AAAFFAAAA3DAAAAAA")
+networking.GET("/get") { JSON, error in
+    // Do something
+}
+```
+
+## Making a request
+
+Making a request is as simple as just calling `GET`, `POST`, `PUT`, or `DELETE`.
+
+**GET example**:
 
 ```swift
 let networking = Networking(baseURL: "https://api-news.layervault.com/api/v2")
-networking.GET("/stories", completion: { JSON, error in
-  if let JSON = JSON {
+networking.GET("/stories") { JSON, error in
     // Stories JSON: https://api-news.layervault.com/api/v2/stories
-  }
-})
+}
 ```
 
-
-### Stubbing GET
+Just add headers to the completion block if you want headers, or remove it if you don't want it.
 
 ```swift
 let networking = Networking(baseURL: "https://api-news.layervault.com/api/v2")
-networking.stubGET("/stories", response: [["id" : 47333, "title" : "Site Design: Aquest"]])
-networking.GET("/stories", completion: { JSON, error in
-  if let JSON = JSON {
-    // Stories with id: 47333
-  }
-})
+networking.GET("/stories") { JSON, headers, error in
+    // headers is a [String : Any] dictionary
+}
 ```
 
-### Cancelling GET
+**POST example**:
 
 ```swift
 let networking = Networking(baseURL: "http://httpbin.org")
-networking.GET("/get", completion: { JSON, error in
-    // Cancelling a GET request returns an error with code -999 which means cancelled request
-})
+networking.POST("/post", parameters: ["username" : "jameson", "password" : "secret"]) { JSON, error in
+    /*
+    JSON Pretty Print:
+    {
+        "json" : {
+            "username" : "jameson",
+            "password" : "secret"
+        },
+        "url" : "http://httpbin.org/post",
+        "data" : "{"password" : "secret","username" : "jameson"}",
+        "headers" : {
+            "Accept" : "application/json",
+            "Content-Type" : "application/json",
+            "Host" : "httpbin.org",
+            "Content-Length" : "44",
+            "Accept-Language" : "en-us"
+        }
+    }
+    */
+}
+```
+
+## Choosing a Content or Parameter Type
+
+The `Content-Type` HTTP specification is so unfriendly, you have to know the specifics of it before understanding that content type is really just the parameter type. Because of this **Networking** uses a `ParameterType` instead of a `ContentType`. Anyway, here's hoping this makes it more human friendly.
+
+### JSON
+
+**Networking** by default uses `application/json` as the `Content-Type`, if you're sending JSON you don't have to do anything. But if you want to send other types of parameters you can do it by providing the `ParameterType` attribute.
+
+When sending JSON your parameters will be serialized to data using `NSJSONSerialization`.
+
+```swift
+let networking = Networking(baseURL: "http://httpbin.org")
+networking.POST("/post", parameters: ["name" : "jameson"]) { JSON, error in
+   // Successfull post using `application/json` as `Content-Type`
+}
+```
+
+### URL-encoding
+
+ If you want to use `application/x-www-form-urlencoded` just use the `.FormURLEncoded` parameter type, internally **Networking** will format your parameters so they use [`Percent-encoding` or `URL-enconding`](https://en.wikipedia.org/wiki/Percent-encoding#The_application.2Fx-www-form-urlencoded_type).
+
+```swift
+let networking = Networking(baseURL: "http://httpbin.org")
+networking.POST("/post", parameterType: .FormURLEncoded, parameters: ["name" : "jameson"]) { JSON, error in
+   // Successfull post using `application/x-www-form-urlencoded` as `Content-Type`
+}
+```
+
+### Multipart
+
+**Networking** provides a simple model to use `multipart/form-data`. A multipart request consists in appending one or several [FormDataPart](https://github.com/3lvis/Networking/blob/master/Sources/FormDataPart.swift) items to a request. The simplest multipart request would look like this.
+
+```swift
+let networking = Networking(baseURL: "https://example.com")
+let imageData = UIImagePNGRepresentation(imageToUpload)!
+let part = FormDataPart(data: imageData, parameterName: "file", filename: "selfie.png")
+networking.POST("/image/upload", part: part) { JSON, error in
+  // Successfull upload using `multipart/form-data` as `Content-Type`
+}
+```
+
+If you need to use several parts or append other parameters than aren't files, you can do it like this:
+
+```swift
+let networking = Networking(baseURL: "https://example.com")
+let part1 = FormDataPart(data: imageData1, parameterName: "file1", filename: "selfie1.png")
+let part2 = FormDataPart(data: imageData2, parameterName: "file2", filename: "selfie2.png")
+let parameters = ["username" : "3lvis"]
+networking.POST("/image/upload", parts: [part1, part2], parameters: parameters) { JSON, error in
+    // Do something
+}
+```
+
+**FormDataPart Content-Type**:
+
+`FormDataPart` uses `FormDataPartType` to generate the `Content-Type` for each part. The default `FormDataPartType` is `.Data` which adds the `application/octet-stream` to your part. If you want to use a `Content-Type` that is not available between the existing `FormDataPartType`s, you can use `.Custom("your-content-type)`.
+
+### Others
+
+At the moment **Networking** supports four types of `ParameterType`s out of the box: `JSON`, `FormURLEncoded`, `MultipartFormData` and `Custom`. Meanwhile `JSON` and `FormURLEncoded` serialize your parameters in some way, `Custom(String)` sends your parameters as plain `NSData` and sets the value inside `Custom` as the `Content-Type`.
+
+For example:
+```swift
+let networking = Networking(baseURL: "http://httpbin.org")
+networking.POST("/upload", parameterType: .Custom("application/octet-stream"), parameters: imageData) { JSON, error in
+   // Successfull upload using `application/octet-stream` as `Content-Type`
+}
+```
+
+## Cancelling a request
+
+### Using path
+
+Cancelling any request for a specific path is really simple. Beware that cancelling a request will cause the request to return with an error with status code URLError.cancelled.
+
+```swift
+let networking = Networking(baseURL: "http://httpbin.org")
+networking.GET("/get") { JSON, error in
+    // Cancelling a GET request returns an error with code URLError.cancelled which means cancelled request
+}
 
 networking.cancelGET("/get")
 ```
 
-## POST
+### Using request identifier
+
+Using `cancelPOST("/upload")` would cancel all POST request for the specific path, but in some cases this isn't what we want. For example if you're trying to upload two photos, but the user requests to cancel one of the uploads, using `cancelPOST("/upload") would cancell all the uploads, this is when ID based cancellation is useful.
 
 ```swift
 let networking = Networking(baseURL: "http://httpbin.org")
-networking.POST("/post", params: ["username":"jameson", "password":"password"]) { JSON, error in
-    /*
-    JSON Pretty Print:
-    {
-        "json" : {
-            "username" : "jameson",
-            "password" : "password"
-        },
-        "url" : "http://httpbin.org/post",
-        "data" : "{"password":"password","username":"jameson"}",
-        "headers" : {
-            "Accept" : "application/json",
-            "Content-Type" : "application/json",
-            "Host" : "httpbin.org",
-            "Content-Length" : "44",
-            "Accept-Language" : "en-us"
-        }
-    }
-    */
+
+// Start first upload
+let firstRequestID = networking.POST("/upload", parts: ...) { JSON, error in
+    //...
 }
+
+// Start second upload
+let secondRequestID = networking.POST("/upload", parts: ...) { JSON, error in
+    //...
+}
+
+// Cancel only the first upload
+networking.cancel(firstRequestID)
 ```
 
-### Stubbing POST
+## Faking a request
+
+Faking a request means that after calling this method on a specific path, any call to this resource, will return what you registered as a response. This technique is also known as mocking or stubbing.
+
+**Faking with successfull response**:
 
 ```swift
 let networking = Networking(baseURL: "https://api-news.layervault.com/api/v2")
-networking.stubPOST("/story", response: ["id" : 47333, "title" : "Site Design: Aquest"])
-networking.POST("/story", params: ["username":"jameson", "password":"password"]) { JSON, error in
-    if let JSON = JSON {
-      // Story with id: 47333
-    }
+networking.fakeGET("/stories", response: [["id" : 47333, "title" : "Site Design: Aquest"]])
+networking.GET("/stories") { JSON, error in
+    // JSON containing stories
 }
 ```
 
-### Cancelling POST
+**Faking with contents of a file**:
+
+If your file is not located in the main bundle you have to specify using the bundle parameters, otherwise `NSBundle.mainBundle()` will be used.
 
 ```swift
-let networking = Networking(baseURL: "http://httpbin.org")
-networking.POST("/post", parameters: ["username":"jameson", "password":"password"]) { JSON, error in
-    // Cancelling a POST request returns an error with code -999 which means cancelled request
-})
-
-networking.cancelPOST("/post")
-```
-
-## PUT
-
-```swift
-let networking = Networking(baseURL: "http://httpbin.org")
-networking.PUT("/put", params: ["username":"jameson", "password":"password"]) { JSON, error in
-    /*
-    JSON Pretty Print:
-    {
-        "json" : {
-            "username" : "jameson",
-            "password" : "password"
-        },
-        "url" : "http://httpbin.org/put",
-        "data" : "{"password":"password","username":"jameson"}",
-        "headers" : {
-            "Accept" : "application/json",
-            "Content-Type" : "application/json",
-            "Host" : "httpbin.org",
-            "Content-Length" : "44",
-            "Accept-Language" : "en-us"
-        }
-    }
-    */
+let networking = Networking(baseURL: baseURL)
+networking.fakeGET("/entries", fileName: "entries.json")
+networking.GET("/entries") { JSON, error in
+    // JSON with the contents of entries.json
 }
 ```
 
-### Stubbing PUT
+**Faking with status code**:
+
+If you do not provide a status code for this fake request, the default returned one will be 200 (SUCCESS), but if you do provide a status code that is not 2XX, then **Networking** will return an NSError containing the status code and a proper error description.
 
 ```swift
 let networking = Networking(baseURL: "https://api-news.layervault.com/api/v2")
-networking.stubPUT("/story", response: ["id" : 47333, "title" : "Site Design: Aquest"])
-networking.PUT("/story", params: ["username":"jameson", "password":"password"]) { JSON, error in
-    if let JSON = JSON {
-      // Story with id: 47333
-    }
+networking.fakeGET("/stories", response: nil, statusCode: 500)
+networking.GET("/stories") { JSON, error in
+    // error with status code 500
 }
 ```
 
-### Cancelling PUT
+## Downloading and caching an image
 
-```swift
-let networking = Networking(baseURL: "http://httpbin.org")
-networking.PUT("/put", parameters: ["username":"jameson", "password":"password"]) { JSON, error in
-    // Cancelling a PUT request returns an error with code -999 which means cancelled request
-})
-
-networking.cancelPUT("/put")
-```
-
-## DELETE
-
-```swift
-let networking = Networking(baseURL: "https://api-news.layervault.com/api/v2")
-networking.DELETE("/stories/2342", completion: { JSON, error in
-  if let JSON = JSON {
-    // { "success": true }
-  }
-})
-```
-
-
-### Stubbing DELETE
-
-```swift
-let networking = Networking(baseURL: "https://api-news.layervault.com/api/v2")
-networking.stubDELETE("/stories/2342", response: ["success" : true])
-networking.DELETE("/stories/2342", completion: { JSON, error in
-  if let JSON = JSON {
-    // { "success": true }
-  }
-})
-```
-
-### Cancelling GET
-
-```swift
-let networking = Networking(baseURL: "http://httpbin.org")
-networking.DELETE("/delete", completion: { JSON, error in
-    // Cancelling a DELETE request returns an error with code -999 which means cancelled request
-})
-
-networking.cancelDELETE("/delete")
-```
-
-## Image download
+**Downloading**:
 
 ```swift
 let networking = Networking(baseURL: "http://httpbin.org")
@@ -256,66 +330,83 @@ networking.downloadImage("/image/png") { image, error in
 }
 ```
 
-### Stubbing image download
-
-```swift
-let networking = Networking(baseURL: baseURL)
-let pigImage = UIImage(named: "pig.png", inBundle: NSBundle(forClass: Tests.self), compatibleWithTraitCollection: nil)!
-networking.stubImageDownload("/image/png", image: pigImage)
-networking.downloadImage("/image/png") { image, error in
-   // Here you'll get the stubbed pig.png image
-}
-```
-
-### Cancelling image download
+**Cancelling**:
 
 ```swift
 let networking = Networking(baseURL: baseURL)
 networking.downloadImage("/image/png") { image, error in
-    // Cancelling a image download returns an error with code -999 which means cancelled request
+    // Cancelling a image download returns an error with code URLError.cancelled which means cancelled request
 }
 
 networking.cancelImageDownload("/image/png")
 ```
 
-### Image download caching
+**Caching**:
 
-`Networking` stores the download image in the Caches folder. It also uses NSCache internally so it doesn't have to download the same image again and again.
-
-If you want to remove the downloaded image so it downloads again. You can do it like this:
+**Networking** uses a multi-cache architecture when downloading images, the first time the `downloadImage` method is called for a specific path, it will store the results in disk (Documents folder) and in memory (NSCache), so in the next call it will return the cached results without hitting the network.
 
 ```swift
 let networking = Networking(baseURL: "http://httpbin.org")
-let destinationURL = networking.destinationURL("/image/png")
-if let path = destinationURL.path where NSFileManager().fileExistsAtPath(path) {
-   try! NSFileManager().removeItemAtPath(path)
+networking.downloadImage("/image/png") { image, error in
+   // Image from network
+   networking.downloadImage("/image/png") { image, error in
+       // Image from cache
+   }
 }
 ```
 
-## Error logging
+If you want to remove the downloaded image you can do it like this:
 
-Any error catched by `Networking` will be printed in your console. This is really convenient since you want to know why your networking call failed anyway.
+```swift
+let networking = Networking(baseURL: "http://httpbin.org")
+let destinationURL = try networking.destinationURL(for: "/image/png")
+if let path = destinationURL.path where NSFileManager.defaultManager().fileExistsAtPath(path) {
+   try! NSFileManager.defaultManager().removeItemAtPath(path)
+}
+```
+
+**Faking**:
+
+```swift
+let networking = Networking(baseURL: baseURL)
+let pigImage = UIImage(named: "pig.png")!
+networking.fakeImageDownload("/image/png", image: pigImage)
+networking.downloadImage("/image/png") { image, error in
+   // Here you'll get the provided pig.png image
+}
+```
+
+## Logging errors
+
+Any error catched by **Networking** will be printed in your console. This is really convenient since you want to know why your networking call failed anyway.
 
 For example a cancelled request will print this:
 
-```
+```shell
 ========== Networking Error ==========
- 
-Error -999: Error Domain=NSURLErrorDomain Code=-999 "cancelled" UserInfo={NSErrorFailingURLKey=http://httpbin.org/image/png, NSLocalizedDescription=cancelled, NSErrorFailingURLStringKey=http://httpbin.org/image/png}
- 
-Request: <NSMutableURLRequest: 0x7fede8c3daf0> { URL: http://httpbin.org/image/png }
- 
+
+Cancelled request: https://api.mmm.com/38bea9c8b75bfed1326f90c48675fce87dd04ae6/thumb/small
+
 ================= ~ ==================
 ```
 
 A 404 request will print something like this:
 
-```
+```shell
 ========== Networking Error ==========
  
-Error 3840: Error Domain=NSCocoaErrorDomain Code=3840 "JSON text did not start with array or object and option to allow fragments not set." UserInfo={NSDebugDescription=JSON text did not start with array or object and option to allow fragments not set.}
+*** Request ***
  
-Request: <NSMutableURLRequest: 0x7fede8d17220> { URL: http://httpbin.org/invalidpath }
+Error 404: Error Domain=NetworkingErrorDomain Code=404 "not found" UserInfo={NSLocalizedDescription=not found}
+ 
+URL: http://httpbin.org/posdddddt
+ 
+Headers: ["Accept": "application/json", "Content-Type": "application/json"]
+ 
+Parameters: {
+  "password" : "secret",
+  "username" : "jameson"
+}
  
 Data: <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <title>404 Not Found</title>
@@ -323,52 +414,65 @@ Data: <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <p>The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again.</p>
 
  
-Response status code: 404
+*** Response ***
  
-Path: http://httpbin.org/invalidpath
+Headers: ["Content-Length": 233, "Server": nginx, "Access-Control-Allow-Origin": *, "Content-Type": text/html, "Date": Sun, 29 May 2016 07:19:13 GMT, "Access-Control-Allow-Credentials": true, "Connection": keep-alive]
  
-Response: <NSHTTPURLResponse: 0x7fede8d0c4e0> { URL: http://httpbin.org/invalidpath } { status code: 404, headers {
-    "Access-Control-Allow-Credentials" = true;
-    "Access-Control-Allow-Origin" = "*";
-    Connection = "keep-alive";
-    "Content-Length" = 233;
-    "Content-Type" = "text/html";
-    Date = "Tue, 17 Nov 2015 09:59:42 GMT";
-    Server = nginx;
-} }
+Status code: 404 — not found
  
 ================= ~ ==================
 ```
 
-## Network Activity Indicator
+## Updating the Network Activity Indicator
 
-`Networking` leverages on [NetworkActivityIndicator](https://github.com/3lvis/NetworkActivityIndicator) to balance how the network activity indicator is displayed.
+**Networking** balances how the network activity indicator is displayed.
 
-You can manage the state of this indicator by using:
+> A network activity indicator appears in the status bar and shows that network activity is occurring.
+>The network activity indicator:
+>
+> - Spins in the status bar while network activity proceeds and disappears when network activity stops
+> - Doesn’t allow user interaction
+>
+> Display the network activity indicator to provide feedback when your app accesses the network for more than a couple of seconds. If the operation finishes sooner than that, you don’t have to show the network activity indicator, because the indicator is likely to disappear before users notice its presence.
+>
+>— [iOS Human Interface Guidelines](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Controls.html)
 
-```swift
-NetworkActivityIndicator.sharedIndicator.visible = true
-```
+<p align="center">
+  <img src="https://raw.githubusercontent.com/3lvis/NetworkActivityIndicator/master/GIF/sample.gif"/>
+</p>
 
-## Installation
+## Installing
 
 **Networking** is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
+use_frameworks!
+
 pod 'Networking'
+```
+
+**Networking** is also available through [Carthage](https://github.com/Carthage/Carthage). To install
+it, simply add the following line to your Cartfile:
+
+```ruby
+github "3lvis/Networking"
 ```
 
 ## Author
 
-Elvis Nuñez, [@3lvis](https://twitter.com/3lvis)
+This library was made with love by [@3lvis](https://twitter.com/3lvis).
 
 
 ## License
 
-**Networking** is available under the MIT license. See the LICENSE file for more info.
+**Networking** is available under the MIT license. See the [LICENSE file](https://github.com/3lvis/Networking/blob/master/LICENSE.md) for more info.
 
 
 ## Attribution
 
-The logo typeface comes thanks to [Sanid Jusić](https://dribbble.com/shots/1049674-Free-Colorfull-Triangle-Typeface)
+The logo typeface comes thanks to [Sanid Jusić](https://dribbble.com/shots/1049674-Free-Colorfull-Triangle-Typeface).
+
+
+## Chinese description
+>使用简单、功能惊喜，基于 NSURLSession 的网络封装库。功能包括带身份验证请求，支持单元测试（mocking/stubbing），异步执行，图片下载及缓存等实用特性。

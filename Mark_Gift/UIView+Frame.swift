@@ -11,8 +11,8 @@
 import UIKit
 
 
-let KScreenWidth:CGFloat = CGRectGetWidth(UIScreen.mainScreen().bounds)
-let KScreenHeight:CGFloat = CGRectGetHeight(UIScreen.mainScreen().bounds)
+let KScreenWidth:CGFloat = UIScreen.main.bounds.width
+let KScreenHeight:CGFloat = UIScreen.main.bounds.height
 extension UIView {
 
 
@@ -20,7 +20,7 @@ extension UIView {
     
         set {
         
-            frame = CGRectMake(newValue, frame.origin.y, frame.size.width, frame.size.height)
+            frame = CGRect(x: newValue, y: frame.origin.y, width: frame.size.width, height: frame.size.height)
         }
         get {
         
@@ -32,7 +32,7 @@ extension UIView {
         
         set {
             
-            frame = CGRectMake(frame.origin.x, newValue, frame.size.width, frame.size.height)
+            frame = CGRect(x: frame.origin.x, y: newValue, width: frame.size.width, height: frame.size.height)
         }
         get {
             
@@ -44,7 +44,7 @@ extension UIView {
         
         set {
             
-            frame = CGRectMake(frame.origin.x, frame.origin.y, newValue, frame.size.height)
+            frame = CGRect(x: frame.origin.x, y: frame.origin.y, width: newValue, height: frame.size.height)
         }
         get {
             
@@ -56,7 +56,7 @@ extension UIView {
         
         set {
             
-            frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, newValue)
+            frame = CGRect(x: frame.origin.x, y: frame.origin.y, width: frame.size.width, height: newValue)
         }
         get {
             
@@ -77,17 +77,17 @@ extension UIView {
 
 extension UIView {
 
-    public  func roundView(round: CGFloat) {
+    public  func roundView(_ round: CGFloat) {
     
         self.layer.masksToBounds = true
         self.layer.cornerRadius = round
     }
     
-    public  func roundViewAndLine(round: CGFloat,borderWidth:CGFloat,lineColor:UIColor) {
+    public  func roundViewAndLine(_ round: CGFloat,borderWidth:CGFloat,lineColor:UIColor) {
         
         self.layer.masksToBounds = true
         self.layer.cornerRadius = round
-        self.layer.borderColor = lineColor.CGColor
+        self.layer.borderColor = lineColor.cgColor
         self.layer.borderWidth = borderWidth
     }
     
@@ -95,8 +95,8 @@ extension UIView {
 
 extension UITableView {
 
-    func tableViewRegiesterNibName(nibName:String)  {
-        let nib:UINib = UINib(nibName: nibName, bundle: NSBundle.mainBundle())
-        self.registerNib(nib, forCellReuseIdentifier: nibName)
+    func tableViewRegiesterNibName(_ nibName:String)  {
+        let nib:UINib = UINib(nibName: nibName, bundle: Bundle.main)
+        self.register(nib, forCellReuseIdentifier: nibName)
     }
 }
