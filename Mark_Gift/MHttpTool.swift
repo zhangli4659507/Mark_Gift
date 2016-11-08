@@ -47,7 +47,7 @@ class MHttpTool: NSObject {
         for (key,value) in parameters {
             parStr.append(String(validatingUTF8: key)!)
             parStr.append("=")
-            parStr.append(String(describing: value))
+            parStr.append(String(describing: value as AnyObject))
             parStr.append("&")
 
         }
@@ -72,7 +72,6 @@ class MHttpTool: NSObject {
                 failtrueCourse(error)
             } else {
                 let model = Mapper<MHttpResponse>().map(JSONObject: JSON)
-//               let model = Mapper<MHttpResponse>().map(JSON)
                 success(model)
             }
         }
